@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/eab7d906-5747-48ef-9600-f149bc097f4c/microsoft.web/sites/subscriptions/eab7d906-5747-48ef-9600-f149bc097f4c/resourceGroups/IDI/providers/Microsoft.Web/sites/soccer-tournament-idi",
+  "appService.deploySubpath": "."
+}
