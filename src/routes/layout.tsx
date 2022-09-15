@@ -9,7 +9,7 @@ function Layout() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">PointsTable</Link>
           </li>
           <li>
             <Link to="/teamroster">teamroster</Link>
