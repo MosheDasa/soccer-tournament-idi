@@ -1,13 +1,21 @@
-import React, { useState } from "react";
-import Footer from "../libs/components/footer/footer";
-import Header from "../libs/components/header/header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "../routes/layout";
+import PointsTable from "../routes/points-table";
+import Scoreboard from "../routes/scoreboard";
+import TeamRoster from "../routes/team-roster";
 
 function App() {
   return (
     <>
-      <Header></Header>
-      <h1> App</h1>
-      <Footer></Footer>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<PointsTable />} />
+            <Route path="teamroster" element={<TeamRoster />} />
+            <Route path="scoreboard" element={<Scoreboard />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
