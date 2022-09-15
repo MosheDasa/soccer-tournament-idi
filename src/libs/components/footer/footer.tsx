@@ -1,9 +1,6 @@
-import React, { useState } from "react";
 import "./footer.css";
 
 function Footer() {
-  const [linkToOpen, setLinkToOpen] = useState<string>();
-
   return (
     <footer className="footer-distributed">
       <div className="footer-left">
@@ -12,5 +9,4 @@ function Footer() {
     </footer>
   );
 }
-
 export default Footer;
