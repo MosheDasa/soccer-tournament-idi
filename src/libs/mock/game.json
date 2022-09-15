@@ -1,0 +1,91 @@
+{
+  "games": {
+    "BatYam": {
+      "GroupA": [
+        {
+          "teamAId": 1,
+          "pointsTeamA": "",
+          "teamBId": 2,
+          "pointsTeamB": "",
+          "gameStatus": 0
+        },
+        {
+          "teamAId": 1,
+          "pointsTeamA": "",
+          "teamBId": 3,
+          "pointsTeamB": "",
+          "gameStatus": 0
+        },
+        {
+          "teamAId": 2,
+          "pointsTeamA": "",
+          "teamBId": 3,
+          "pointsTeamB": "",
+          "gameStatus": 0
+        }
+      ],
+      "GroupB": [
+        {
+          "teamAId": 4,
+          "pointsTeamA": "",
+          "teamBId": 5,
+          "pointsTeamB": "",
+          "gameStatus": 0
+        },
+        {
+          "teamAId": 4,
+          "pointsTeamA": "",
+          "teamBId": 6,
+          "pointsTeamB": "",
+          "gameStatus": 0
+        },
+        {
+          "teamAId": 5,
+          "pointsTeamA": "",
+          "teamBId": 6,
+          "pointsTeamB": "",
+          "gameStatus": 0
+        }
+      ]
+    },
+    "Semifinals": [
+      {
+        "teamAId": 0,
+        "pointsTeamA": "",
+        "teamBId": 0,
+        "pointsTeamB": "",
+        "gameStatus": 0
+      },
+      {
+        "teamAId": 0,
+        "pointsTeamA": "",
+        "teamBId": 0,
+        "pointsTeamB": "",
+        "gameStatus": 0
+      },
+      {
+        "teamAId": 0,
+        "pointsTeamA": "",
+        "teamBId": 0,
+        "pointsTeamB": "",
+        "gameStatus": 0
+      }
+    ],
+    "final": [
+      {
+        "teamAId": 0,
+        "pointsTeamA": "",
+        "teamBId": 0,
+        "pointsTeamB": "",
+        "gameStatus": 0
+      },
+      {
+        "teamAId": 0,
+        "pointsTeamA": "",
+        "teamBId": 0,
+        "pointsTeamB": "",
+        "gameStatus": 0
+      }
+    ]
+  }
+}
