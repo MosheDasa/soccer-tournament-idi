@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
 const styles = {
   flex: {
@@ -36,7 +37,12 @@ export default function ButtonAppBar() {
           <Typography color="inherit" sx={styles.flex}>
             טורניר כדורגל - ביטוח ישיר
           </Typography>
-          <Button color="inherit">ADMIN</Button>
+          <Button href="/login" color="inherit">
+            התחברות למסף שופט
+          </Button>
+          <Button href="/adminScreen" color="inherit">
+            מסך שופט
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

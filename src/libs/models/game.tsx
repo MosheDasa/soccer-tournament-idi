@@ -6,7 +6,7 @@ export interface Game {
   gameStatus: GameStatusType;
 }
 
-enum GameStatusType {
+export enum GameStatusType {
   notStarted,
   Started,
   Ended,
