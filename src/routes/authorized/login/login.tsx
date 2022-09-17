@@ -1,24 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
-import { useStyles } from "./login-style";
 import { UserAccount } from "../../../libs/models/user-account";
 import {
   Avatar,
-  createTheme,
   CssBaseline,
   Grid,
-  makeStyles,
   Paper,
   TextField,
   Typography,
 } from "@mui/material";
-
-const theme = createTheme();
+import { useApiAuth } from "../../../libs/services/api-auth";
 
 export default function SignInSide(props: any) {
-  //const theme = React.useMemo(() => ({ color }), [color]);
-
-  const classes = useStyles;
+  const { login } = useApiAuth();
 
   const [account, setAccount] = useState<UserAccount>({
     username: "",
@@ -39,6 +33,7 @@ export default function SignInSide(props: any) {
   const handelLogin = (event: any) => {
     event.preventDefault();
     if (account && account.username && account.password) {
+      login(account.username, account.password);
       console.log("handle request ", account);
     } else {
       //todo: error message

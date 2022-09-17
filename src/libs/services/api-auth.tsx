@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/use-local-storage";
 import { KeyLocalStorge } from "../models/keys";
 import { PermissionType } from "../models/permission";
+import { UserAccount } from "../models/user-account";
 
 export const useApiAuth = () => {
   const [permissionUser, setPermissionUser] = useState<PermissionType>(
@@ -18,8 +19,27 @@ export const useApiAuth = () => {
   }, []);
 
   const login = (userName: string, password: string) => {
-    setPermissionUser(PermissionType.referee);
-    setValue(PermissionType.referee);
+    return fetch("/mock/users.json").then((res) => {
+      res.json().then((data: any) => {
+        const usersData = data.users as Array<UserAccount>;
+
+        if (usersData && usersData.length) {
+          const userLogin = usersData.find(
+            (x) => x.username === userName && x.password === password
+          );
+
+          if (userLogin && userLogin.permission) {
+            setPermissionUser(userLogin.permission);
+            setValue(userLogin.permission);
+            if (userLogin.permission === PermissionType.referee) {
+              window.location.href = "/refereeScreen";
+            } else {
+              window.location.href = "/adminScreen";
+            }
+          }
+        }
+      });
+    });
   };
 
   const logout = () => {
