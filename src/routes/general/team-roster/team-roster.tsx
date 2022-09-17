@@ -15,6 +15,7 @@ import { StyledTableCell, StyledTableRow } from "./team-roster-style";
 
 export default function CustomizedTables() {
   const [players, setPlayers] = useState<Array<Player>>(new Array<Player>());
+  const [teamName, setTeamName] = useState("");
   const location = useLocation();
   const { getTeamById } = useApiInformation();
 
@@ -22,13 +23,14 @@ export default function CustomizedTables() {
     const teamid = location.pathname.replace("/teamRoster/", "");
     const TeamObj = getTeamById(+teamid);
     if (TeamObj && TeamObj.players) {
+      setTeamName(TeamObj.teamName);
       setPlayers(TeamObj.players);
     }
   }, []);
 
   return (
     <>
-      <h1>סגל הקבוצות</h1>
+      <h1>סגל הקבוצות - {teamName}</h1>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>

@@ -1,6 +1,6 @@
 export interface Team {
   teamID: number;
-  teamName: number;
+  teamName: string;
   teamCoach: string;
   players: Array<Player>;
   batyam: number;
