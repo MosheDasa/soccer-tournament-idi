@@ -12,7 +12,7 @@ function Login() {
 
   return (
     <>
-      <h1> Login - {permissionUser}</h1>
+      <h1> LOGIN</h1>
 
       <Stack
         component="form"

@@ -27,16 +27,6 @@ export const navItems: Array<navItem> = [
     ],
   },
   {
-    path: "login",
-    title: "התחברות",
-    permission: [PermissionType.user],
-  },
-  {
-    path: "logout",
-    title: "התנתק",
-    permission: [PermissionType.referee, PermissionType.admin],
-  },
-  {
     path: "teamroster",
     title: "פרסום סגלים",
     permission: [
@@ -53,5 +43,15 @@ export const navItems: Array<navItem> = [
       PermissionType.referee,
       PermissionType.admin,
     ],
+  },
+  {
+    path: "login",
+    title: "| התחברות",
+    permission: [PermissionType.user],
+  },
+  {
+    path: "logout",
+    title: "| התנתק",
+    permission: [PermissionType.referee, PermissionType.admin],
   },
 ];

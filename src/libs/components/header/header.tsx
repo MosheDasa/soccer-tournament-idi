@@ -87,6 +87,7 @@ export default function HeaderAppBar() {
           >
             טורניר כדורגל 3
           </Typography>
+
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItemsAfterFilter.map((item) => (
               <Button
