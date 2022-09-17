@@ -42,6 +42,11 @@ export const useApiAuth = () => {
     });
   };
 
+  const isLogin = (permissionAllow: Array<PermissionType>) => {
+    const isLogin = permissionAllow.find((x) => x === value) != null;
+    return isLogin;
+  };
+
   const logout = () => {
     setPermissionUser(PermissionType.user);
     setValue(PermissionType.user);
@@ -51,5 +56,6 @@ export const useApiAuth = () => {
     login,
     logout,
     permissionUser,
+    isLogin,
   };
 };

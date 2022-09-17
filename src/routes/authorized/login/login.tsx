@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import { UserAccount } from "../../../libs/models/user-account";
 import {
@@ -10,9 +10,16 @@ import {
   Typography,
 } from "@mui/material";
 import { useApiAuth } from "../../../libs/services/api-auth";
+import { PermissionType } from "../../../libs/models/permission";
 
 export default function SignInSide(props: any) {
-  const { login } = useApiAuth();
+  const { login, isLogin } = useApiAuth();
+
+  useEffect(() => {
+    if (isLogin([PermissionType.admin, PermissionType.referee])) {
+      window.location.href = "/refereeScreen";
+    }
+  }, []);
 
   const [account, setAccount] = useState<UserAccount>({
     username: "",
