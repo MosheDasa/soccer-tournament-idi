@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/use-local-storage";
+import { KeyLocalStorge } from "../models/keys";
 import { PermissionType } from "../models/permission";
 
 export const useApiAuth = () => {
-  const keyAuthLocalStorage = "AutUser";
-
   const [permissionUser, setPermissionUser] = useState<PermissionType>(
     PermissionType.user
   );
 
   const [value, setValue] = useLocalStorage(
-    keyAuthLocalStorage,
+    KeyLocalStorge.AutUserKeyStorage,
     PermissionType.user
   );
 

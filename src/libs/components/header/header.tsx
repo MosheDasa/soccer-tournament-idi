@@ -29,6 +29,8 @@ export default function HeaderAppBar() {
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState("");
 
+  const TitleHeader = "טורניר כדורגל  - ביטוח ישיר";
+
   useEffect(() => {
     setActiveLink(location.pathname.replace("/", ""));
   }, [location]);
@@ -60,7 +62,7 @@ export default function HeaderAppBar() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        טורניר כדורגל
+        {TitleHeader}
       </Typography>
       <Divider />
       <List>
@@ -107,7 +109,7 @@ export default function HeaderAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            טורניר כדורגל
+            {TitleHeader}
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItemsAfterFilter.map((item) => (

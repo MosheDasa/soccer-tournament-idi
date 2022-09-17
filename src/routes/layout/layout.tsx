@@ -8,7 +8,7 @@ function Layout() {
     <>
       <Header></Header>
 
-      <Container fixed>
+      <Container dir="rtl" fixed>
         <Outlet />
       </Container>
 

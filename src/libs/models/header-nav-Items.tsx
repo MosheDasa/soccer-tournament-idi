@@ -27,7 +27,7 @@ export const navItems: Array<navItem> = [
     ],
   },
   {
-    path: "teamroster",
+    path: "listGroups",
     title: "פרסום סגלים",
     permission: [
       PermissionType.user,
