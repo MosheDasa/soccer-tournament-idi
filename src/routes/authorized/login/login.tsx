@@ -6,8 +6,8 @@ function Login() {
   const { permissionUser, login } = useApiAuth();
 
   const handleLogin = () => {
-    window.location.href = "/";
-    login("aaa", "bb");
+    login("", "");
+    window.location.href = "/refereeScreen";
   };
 
   return (

@@ -42,7 +42,7 @@ export default function HeaderAppBar() {
   };
 
   const navItemsAfterFilter = navItems.filter(
-    (x) => x.permission <= permissionUser
+    (x) => x.permission.indexOf(permissionUser) !== -1
   );
 
   const drawer = (
