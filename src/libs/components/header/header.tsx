@@ -48,7 +48,7 @@ export default function HeaderAppBar() {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        טורניר כדורגל - 1
+        טורניר כדורגל
       </Typography>
       <Divider />
       <List>
@@ -85,7 +85,7 @@ export default function HeaderAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            טורניר כדורגל 3
+            טורניר כדורגל
           </Typography>
 
           <Box sx={{ display: { xs: "none", sm: "block" } }}>

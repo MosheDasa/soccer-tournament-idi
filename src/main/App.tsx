@@ -8,6 +8,7 @@ import Scoreboard from "../routes/general/scoreboard/scoreboard";
 import AdminScreen from "../routes/authorized/admin-screen/admin-screen";
 import RefereeScreen from "../routes/authorized/referee-screen/referee-screen";
 import Login from "../routes/authorized/login/login";
+import "../main.css";
 
 function App() {
   const { loadTeams, loadGame } = useApiInformation();

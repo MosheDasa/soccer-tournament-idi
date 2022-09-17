@@ -1,10 +1,8 @@
-import "./footer.css";
-
 function Footer() {
   return (
-    <footer className="footer-distributed">
-      <div className="footer-left">
-        <p>&copy; 2022 Barhon Moshe Dasa - idi </p>
+    <footer style={{ position: "fixed", bottom: 0 }}>
+      <div>
+        <p>&copy; 2022 Barhon Moshe Dasa</p>
       </div>
     </footer>
   );
