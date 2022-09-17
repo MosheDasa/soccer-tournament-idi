@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "username": "dasa",
+      "password": "121212",
+      "permission": 2
+    },
+    {
+      "username": "moshe",
+      "password": "121212",
+      "permission": 1
+    },
+    {
+      "username": "avi",
+      "password": "121212",
+      "permission": 1
+    }
+  ]
+}

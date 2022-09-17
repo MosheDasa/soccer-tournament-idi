@@ -1,47 +1,61 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
 import { useStyles } from "./login-style";
-import Avatar from "@material-ui/core/Avatar";
+import { UserAccount } from "../../../libs/models/user-account";
+import {
+  Avatar,
+  createTheme,
+  CssBaseline,
+  Grid,
+  makeStyles,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+
+const theme = createTheme();
 
 export default function SignInSide(props: any) {
-  const classes = useStyles();
+  //const theme = React.useMemo(() => ({ color }), [color]);
 
-  const [account, setAccount] = React.useState({ username: "", password: "" });
+  const classes = useStyles;
 
-  const handelAccount = (property: any, event: any) => {
+  const [account, setAccount] = useState<UserAccount>({
+    username: "",
+    password: "",
+  });
+
+  const handelAccount = (property: string, event: any) => {
     const accountCopy = { ...account };
-    // accountCopy[property] = event.target.value;
+    if (property === "username") {
+      accountCopy.username = event.target.value;
+    } else {
+      accountCopy.password = event.target.value;
+    }
 
     setAccount(accountCopy);
   };
 
-  const handelLogin = () => {};
+  const handelLogin = (event: any) => {
+    event.preventDefault();
+    if (account && account.username && account.password) {
+      console.log("handle request ", account);
+    } else {
+      //todo: error message
+    }
+  };
 
   return (
-    <Grid container component="main" className={classes.root}>
+    <Grid container component="main">
       <CssBaseline />
       {/* <Grid item xs={false} sm={4} md={7} className={classes.image} /> */}
-      <Grid
-        className={classes.size}
-        item
-        xs={12}
-        sm={8}
-        md={5}
-        component={Paper}
-        elevation={1}
-        square
-      >
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}></Avatar>
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={1} square>
+        <div>
+          <Avatar></Avatar>
           <Typography component="h1" variant="h5">
             כניסה לשופטים
           </Typography>
-          <form className={classes.form} noValidate>
+          <form noValidate>
             <TextField
               onChange={(event) => handelAccount("username", event)}
               variant="outlined"
@@ -70,8 +84,7 @@ export default function SignInSide(props: any) {
               fullWidth
               variant="contained"
               color="primary"
-              className={classes.submit}
-              onClick={handelLogin}
+              onClick={(e) => handelLogin(e)}
             >
               כניסה
             </Button>

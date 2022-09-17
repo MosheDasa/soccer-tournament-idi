@@ -1,17 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
-
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = {
   root: {
-    height: "100vh",
-    //   backgroundImage: `url(${image})`,
+    height: "50vh",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-
+    //backgroundColor: theme.palette.grey[50],
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -24,20 +17,20 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   paper: {
-    margin: theme.spacing(2, 6),
+    //margin: theme.spacing(2, 6),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
-    margin: theme.spacing(0),
-    backgroundColor: theme.palette.secondary.main,
+    //margin: theme.spacing(0),
+    //backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    //marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    //margin: theme.spacing(3, 0, 2),
   },
-}));
+};
