@@ -9,12 +9,16 @@ import { useApiInformation } from "../../../libs/services/api-information";
 import { useEffect, useState } from "react";
 import { Team } from "../../../libs/models/team";
 import { Link } from "react-router-dom";
+import useLoderer from "../../../libs/hooks/use-loder";
 
 export default function ListGroups() {
   const [teams, setTeams] = useState(new Array<Team>());
   const { getTeams } = useApiInformation();
 
+  const { loder, setLoder } = useLoderer();
+
   useEffect(() => {
+    setLoder(true);
     const teamsData = getTeams();
     if (teamsData) {
       setTeams(teamsData);
