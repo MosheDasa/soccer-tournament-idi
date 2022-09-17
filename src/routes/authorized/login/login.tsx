@@ -1,10 +1,18 @@
 import { Button, Stack, TextField } from "@mui/material";
 import { useEffect } from "react";
+import { useApiAuth } from "../../../libs/services/api-auth";
 
 function Login() {
+  const { permissionUser, login } = useApiAuth();
+
+  const handleLogin = () => {
+    window.location.href = "/";
+    login("aaa", "bb");
+  };
+
   return (
     <>
-      <h1> Login</h1>
+      <h1> Login - {permissionUser}</h1>
 
       <Stack
         component="form"
@@ -18,7 +26,7 @@ function Login() {
         <TextField id="outlined-basic" label="User" variant="outlined" />
         <TextField id="outlined-basic" label="Password" variant="outlined" />
 
-        <Button size="large" variant="contained">
+        <Button size="large" onClick={handleLogin} variant="contained">
           התחבר
         </Button>
       </Stack>

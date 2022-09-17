@@ -23,6 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<PointsTable />} />
+            <Route path="pointsTable" element={<PointsTable />} />
             <Route path="teamroster" element={<TeamRoster />} />
             <Route path="scoreboard" element={<Scoreboard />} />
             <Route path="adminScreen" element={<AdminScreen />} />
