@@ -16,7 +16,7 @@ export const useApiAuth = () => {
 
   useEffect(() => {
     setPermissionUser(value);
-  }, [""]);
+  }, []);
 
   const login = (userName: string, password: string) => {
     setPermissionUser(PermissionType.referee);
