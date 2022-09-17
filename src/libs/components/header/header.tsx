@@ -17,6 +17,9 @@ import { useEffect, useState } from "react";
 import { useApiAuth } from "../../services/api-auth";
 import { navItems } from "../../models/header-nav-Items";
 
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import LogoutIcon from "@mui/icons-material/Logout";
+
 const drawerWidth = 240;
 
 export default function HeaderAppBar() {
@@ -49,6 +52,10 @@ export default function HeaderAppBar() {
     .reverse()
     .filter((x) => x.permission.indexOf(permissionUser) !== -1);
 
+  const isLoginOrLogout = (path: string) => {
+    return path === "login" || path === "logout";
+  };
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -65,7 +72,7 @@ export default function HeaderAppBar() {
             >
               <ListItemText
                 primary={
-                  item.path === "login" || item.path === "logout"
+                  isLoginOrLogout(item.path)
                     ? " | " + item.title + " | "
                     : item.title
                 }
@@ -97,18 +104,29 @@ export default function HeaderAppBar() {
           >
             טורניר כדורגל
           </Typography>
-
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItemsAfterFilter.map((item) => (
-              <Button
-                onClick={(event) => handleClickLink(item.path)}
-                key={item.path}
-                sx={{ color: "#fff" }}
-              >
-                {item.path === "login" || item.path === "logout"
-                  ? " | " + item.title
-                  : item.title}
-              </Button>
+              <>
+                <Button
+                  endIcon={
+                    isLoginOrLogout(item.path) ? (
+                      item.path === "logout" ? (
+                        <LogoutIcon />
+                      ) : (
+                        <AccountBoxIcon />
+                      )
+                    ) : null
+                  }
+                  variant={
+                    isLoginOrLogout(item.path) ? "contained" : "outlined"
+                  }
+                  onClick={(event) => handleClickLink(item.path)}
+                  key={item.path}
+                  sx={{ color: "#fff" }}
+                >
+                  {item.title}
+                </Button>
+              </>
             ))}
           </Box>
         </Toolbar>
