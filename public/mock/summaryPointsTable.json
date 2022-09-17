@@ -1,0 +1,34 @@
+{
+  "summaryPointsTable": [
+    {
+      "rating": 1,
+      "teamID": 1,
+      "teamName": "מערכות מידע"
+    },
+    {
+      "rating": 2,
+      "teamID": 2,
+      "teamName": "מוקד דירות"
+    },
+    {
+      "rating": 3,
+      "teamID": 3,
+      "teamName": "מוקד שימור חיים"
+    },
+    {
+      "rating": 4,
+      "teamID": 4,
+      "teamName": "מוקד חיים יקנעם"
+    },
+    {
+      "rating": 5,
+      "teamID": 5,
+      "teamName": "מוקד חידושים"
+    },
+    {
+      "rating": 6,
+      "teamID": 6,
+      "teamName": "מוקד חיים פ'ת"
+    }
+  ]
+}

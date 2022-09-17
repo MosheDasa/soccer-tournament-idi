@@ -8,33 +8,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useApiInformation } from "../../../libs/services/api-information";
 import { useEffect, useState } from "react";
 import { Team } from "../../../libs/models/team";
-import { Scoreboard } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import {
-  Grid,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
-
-const styles = (theme: any) => ({
-  root: {
-    display: "flex",
-    marginTop: theme.spacing.unit * 3,
-    overflowX: "hide",
-  },
-  table: {
-    minWidth: 340,
-  },
-  tableCell: {
-    paddingRight: 4,
-    paddingLeft: 5,
-  },
-});
 
 export default function ListGroups() {
   const [teams, setTeams] = useState(new Array<Team>());

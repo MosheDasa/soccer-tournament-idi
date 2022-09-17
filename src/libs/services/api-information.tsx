@@ -6,19 +6,17 @@ import { Team } from "../models/team";
 export const useApiInformation = () => {
   const [value, setValue] = useLocalStorage(KeyLocalStorge.TeamsKeyStorage, "");
 
+  // ---------------- PointsTable ----------------
+  const getSummaryPointsTable = async () => {
+    return fetch("/mock/summaryPointsTable.json").then((res) => res.json());
+  };
+
+  // ---------------- Teams ----------------------
   const loadTeams = async () => {
     fetch("/mock/team.json")
       .then((res) => res.json())
       .then((json) => {
         setValue(json.teams);
-      });
-  };
-
-  const loadGame = async () => {
-    fetch("/mock/game.json")
-      .then((res) => res.json())
-      .then((json) => {
-        console.log("dasa loadGame", json);
       });
   };
 
@@ -35,10 +33,20 @@ export const useApiInformation = () => {
     return value as Array<Team>;
   };
 
+  // ---------------- Game ----------------------
+  const loadGame = async () => {
+    fetch("/mock/game.json")
+      .then((res) => res.json())
+      .then((json) => {
+        console.log("dasa loadGame", json);
+      });
+  };
+
   return {
     loadTeams,
     loadGame,
     getTeams,
     getTeamById,
+    getSummaryPointsTable,
   };
 };

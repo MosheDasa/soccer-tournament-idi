@@ -11,7 +11,10 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useApiInformation } from "../../../libs/services/api-information";
 import { Player, Team } from "../../../libs/models/team";
-import { StyledTableCell, StyledTableRow } from "./team-roster-style";
+import {
+  StyledTableCell,
+  StyledTableRow,
+} from "../../../libs/styles/team-roster-style";
 
 export default function CustomizedTables() {
   const [players, setPlayers] = useState<Array<Player>>(new Array<Player>());
