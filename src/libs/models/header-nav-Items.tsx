@@ -18,7 +18,7 @@ export const navItems: Array<navItem> = [
     permission: [PermissionType.referee, PermissionType.admin],
   },
   {
-    path: "pointsTable",
+    path: "",
     title: "טבלה תוצאות",
     permission: [
       PermissionType.user,

@@ -16,27 +16,28 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useApiAuth } from "../../services/api-auth";
 import { navItems } from "../../models/header-nav-Items";
-
+import { useLocation } from "react-router-dom";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 const drawerWidth = 240;
 
 export default function HeaderAppBar() {
+  const location = useLocation();
   const { permissionUser, logout } = useApiAuth();
-
-  useEffect(() => {}, []);
-
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState("");
+
+  useEffect(() => {
+    setActiveLink(location.pathname.replace("/", ""));
+  }, [location]);
 
   const handleClickLink = (path: string) => {
     if (path === "logout") {
       logout();
       path = "";
     }
-    setActiveLink(path);
     navigate("/" + path);
   };
 
@@ -65,12 +66,16 @@ export default function HeaderAppBar() {
       <List>
         {navItemsAfterFilterMobile.map((item) => (
           <ListItem key={item.path} disablePadding>
-            {/* <Link to="/adminScreen">adminScreen</Link> */}
+            {/* <Link to='/adminScreen'>adminScreen</Link> */}
             <ListItemButton
               onClick={(event) => handleClickLink(item.path)}
               sx={{ textAlign: "center" }}
             >
               <ListItemText
+                style={{
+                  textDecoration:
+                    activeLink === item.path ? "underline" : " none",
+                }}
                 primary={
                   isLoginOrLogout(item.path)
                     ? " | " + item.title + " | "
@@ -85,7 +90,7 @@ export default function HeaderAppBar() {
   );
 
   return (
-    <Box sx={{ display: "flex", "margin-bottom": "5em" }}>
+    <Box sx={{ display: "flex", marginBottom: "5em" }}>
       <AppBar component="nav">
         <Toolbar>
           <IconButton
@@ -108,6 +113,11 @@ export default function HeaderAppBar() {
             {navItemsAfterFilter.map((item) => (
               <>
                 <Button
+                  key={item.path}
+                  style={{
+                    textDecoration:
+                      activeLink === item.path ? "underline" : " none",
+                  }}
                   endIcon={
                     isLoginOrLogout(item.path) ? (
                       item.path === "logout" ? (
@@ -117,11 +127,8 @@ export default function HeaderAppBar() {
                       )
                     ) : null
                   }
-                  variant={
-                    isLoginOrLogout(item.path) ? "contained" : "outlined"
-                  }
+                  variant={activeLink === item.path ? "contained" : "outlined"}
                   onClick={(event) => handleClickLink(item.path)}
-                  key={item.path}
                   sx={{ color: "#fff" }}
                 >
                   {item.title}
