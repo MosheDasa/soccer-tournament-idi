@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocalStorage } from "../hooks/use-local-storage";
 import { KeyLocalStorge } from "../models/keys";
+import { Team } from "../models/team";
 
 export const useApiInformation = () => {
   const [value, setValue] = useLocalStorage(KeyLocalStorge.TeamsKeyStorage, "");
@@ -9,7 +10,7 @@ export const useApiInformation = () => {
     fetch("/mock/team.json")
       .then((res) => res.json())
       .then((json) => {
-        setValue(json);
+        setValue(json.teams);
       });
   };
 
@@ -21,13 +22,23 @@ export const useApiInformation = () => {
       });
   };
 
+  const getTeamById = (teamId: number) => {
+    const teams = value as Array<Team>;
+    const teamObj = teams.filter((x) => x.teamID === teamId);
+    if (teamObj) {
+      return teamObj[0];
+    }
+    return null;
+  };
+
   const getTeams = () => {
-    return value;
+    return value as Array<Team>;
   };
 
   return {
     loadTeams,
     loadGame,
     getTeams,
+    getTeamById,
   };
 };

@@ -32,7 +32,7 @@ function App() {
           <Route path="scoreboard" element={<Scoreboard />} />
           <Route path="adminScreen" element={<AdminScreen />} />
           <Route path="refereeScreen" element={<RefereeScreen />} />
-          <Route path="teamRoster" element={<TeamRoster />} />
+          <Route path="teamRoster/:teamid" element={<TeamRoster />} />
           <Route path="login" element={<Login />} />
         </Route>
       </Routes>

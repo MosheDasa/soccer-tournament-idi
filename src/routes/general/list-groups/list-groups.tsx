@@ -10,23 +10,46 @@ import { useEffect, useState } from "react";
 import { Team } from "../../../libs/models/team";
 import { Scoreboard } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import {
+  Grid,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
+
+const styles = (theme: any) => ({
+  root: {
+    display: "flex",
+    marginTop: theme.spacing.unit * 3,
+    overflowX: "hide",
+  },
+  table: {
+    minWidth: 340,
+  },
+  tableCell: {
+    paddingRight: 4,
+    paddingLeft: 5,
+  },
+});
 
 export default function ListGroups() {
   const [teams, setTeams] = useState(new Array<Team>());
   const { getTeams } = useApiInformation();
 
   useEffect(() => {
-    const TeamsObj = getTeams();
-    if (TeamsObj && TeamsObj.teams) {
-      const teamsData = TeamsObj.teams;
+    const teamsData = getTeams();
+    if (teamsData) {
       setTeams(teamsData);
     }
   }, []);
 
-  const clickTeam = () => {};
-
   return (
     <List
+      style={{ minWidth: "100px" }}
       sx={{ width: "100%", maxWidth: "100%", bgcolor: "background.paper" }}
       component="nav"
       aria-labelledby="nested-list-subheader"
@@ -37,7 +60,11 @@ export default function ListGroups() {
       }
     >
       {teams.map((team: Team) => (
-        <ListItemButton component={Link} to={"/teamRoster"} key={team.teamID}>
+        <ListItemButton
+          component={Link}
+          to={"/teamRoster/" + team.teamID}
+          key={team.teamID}
+        >
           <ListItemIcon>
             <ArrowForwardIosIcon />
           </ListItemIcon>
