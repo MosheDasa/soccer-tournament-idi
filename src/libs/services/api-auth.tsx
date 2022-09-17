@@ -16,12 +16,11 @@ export const useApiAuth = () => {
 
   useEffect(() => {
     setPermissionUser(value);
-    console.log("dasa", value);
   }, [""]);
 
   const login = (userName: string, password: string) => {
-    setPermissionUser(PermissionType.admin);
-    setValue(PermissionType.admin);
+    setPermissionUser(PermissionType.referee);
+    setValue(PermissionType.referee);
   };
 
   const logout = () => {

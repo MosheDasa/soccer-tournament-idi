@@ -46,12 +46,12 @@ export const navItems: Array<navItem> = [
   },
   {
     path: "login",
-    title: "| התחברות",
+    title: "התחברות",
     permission: [PermissionType.user],
   },
   {
     path: "logout",
-    title: "| התנתק",
+    title: "התנתק",
     permission: [PermissionType.referee, PermissionType.admin],
   },
 ];

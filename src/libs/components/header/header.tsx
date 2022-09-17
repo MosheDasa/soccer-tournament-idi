@@ -45,6 +45,10 @@ export default function HeaderAppBar() {
     (x) => x.permission.indexOf(permissionUser) !== -1
   );
 
+  const navItemsAfterFilterMobile = [...navItems]
+    .reverse()
+    .filter((x) => x.permission.indexOf(permissionUser) !== -1);
+
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -52,14 +56,20 @@ export default function HeaderAppBar() {
       </Typography>
       <Divider />
       <List>
-        {navItemsAfterFilter.map((item) => (
+        {navItemsAfterFilterMobile.map((item) => (
           <ListItem key={item.path} disablePadding>
             {/* <Link to="/adminScreen">adminScreen</Link> */}
             <ListItemButton
               onClick={(event) => handleClickLink(item.path)}
               sx={{ textAlign: "center" }}
             >
-              <ListItemText primary={item.title} />
+              <ListItemText
+                primary={
+                  item.path === "login" || item.path === "logout"
+                    ? " | " + item.title + " | "
+                    : item.title
+                }
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -95,7 +105,9 @@ export default function HeaderAppBar() {
                 key={item.path}
                 sx={{ color: "#fff" }}
               >
-                {item.title}
+                {item.path === "login" || item.path === "logout"
+                  ? " | " + item.title
+                  : item.title}
               </Button>
             ))}
           </Box>
