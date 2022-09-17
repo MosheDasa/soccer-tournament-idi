@@ -113,29 +113,27 @@ export default function HeaderAppBar() {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItemsAfterFilter.map((item) => (
-              <>
-                <Button
-                  key={item.path}
-                  style={{
-                    textDecoration:
-                      activeLink === item.path ? "underline" : " none",
-                  }}
-                  endIcon={
-                    isLoginOrLogout(item.path) ? (
-                      item.path === "logout" ? (
-                        <LogoutIcon />
-                      ) : (
-                        <AccountBoxIcon />
-                      )
-                    ) : null
-                  }
-                  variant={activeLink === item.path ? "contained" : "outlined"}
-                  onClick={(event) => handleClickLink(item.path)}
-                  sx={{ color: "#fff" }}
-                >
-                  {item.title}
-                </Button>
-              </>
+              <Button
+                key={item.path}
+                style={{
+                  textDecoration:
+                    activeLink === item.path ? "underline" : " none",
+                }}
+                endIcon={
+                  isLoginOrLogout(item.path) ? (
+                    item.path === "logout" ? (
+                      <LogoutIcon />
+                    ) : (
+                      <AccountBoxIcon />
+                    )
+                  ) : null
+                }
+                variant={activeLink === item.path ? "contained" : "outlined"}
+                onClick={(event) => handleClickLink(item.path)}
+                sx={{ color: "#fff" }}
+              >
+                {item.title}
+              </Button>
             ))}
           </Box>
         </Toolbar>

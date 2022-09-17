@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import { UserAccount } from "../../../libs/models/user-account";
 import {
+  Alert,
   Avatar,
   CssBaseline,
   Grid,
@@ -11,9 +12,11 @@ import {
 } from "@mui/material";
 import { useApiAuth } from "../../../libs/services/api-auth";
 import { PermissionType } from "../../../libs/models/permission";
+import { ErrorMessageType } from "../../../libs/models/generta";
 
 export default function SignInSide(props: any) {
   const { login, isLogin } = useApiAuth();
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (isLogin([PermissionType.admin, PermissionType.referee])) {
@@ -28,6 +31,8 @@ export default function SignInSide(props: any) {
 
   const handelAccount = (property: string, event: any) => {
     const accountCopy = { ...account };
+    setErrorMessageByErrorType(ErrorMessageType.None);
+
     if (property === "username") {
       accountCopy.username = event.target.value;
     } else {
@@ -39,12 +44,37 @@ export default function SignInSide(props: any) {
 
   const handelLogin = (event: any) => {
     event.preventDefault();
+    setErrorMessageByErrorType(ErrorMessageType.None);
     if (account && account.username && account.password) {
-      login(account.username, account.password);
-      console.log("handle request ", account);
+      login(account.username, account.password).then(
+        (replay: ErrorMessageType) => {
+          setErrorMessageByErrorType(replay);
+        }
+      );
     } else {
-      //todo: error message
+      setErrorMessageByErrorType(ErrorMessageType.RequiredFields);
     }
+  };
+
+  const setErrorMessageByErrorType = (errorType: ErrorMessageType) => {
+    let errorMessage = "";
+
+    switch (errorType) {
+      case ErrorMessageType.GeneralError:
+        errorMessage = "שגיאה כללית";
+        break;
+      case ErrorMessageType.Invalid:
+        errorMessage = "היוזר או הסיסמא לא תקינים";
+        break;
+      case ErrorMessageType.RequiredFields:
+        errorMessage = "יש למלא את כל השדות";
+        break;
+      case ErrorMessageType.None:
+      default:
+        errorMessage = "";
+        break;
+    }
+    setErrorMessage(errorMessage);
   };
 
   return (
@@ -59,6 +89,7 @@ export default function SignInSide(props: any) {
           </Typography>
           <form noValidate>
             <TextField
+              error={errorMessage ? true : false}
               onChange={(event) => handelAccount("username", event)}
               variant="outlined"
               margin="normal"
@@ -70,6 +101,7 @@ export default function SignInSide(props: any) {
               autoFocus
             />
             <TextField
+              error={errorMessage ? true : false}
               onChange={(event) => handelAccount("password", event)}
               variant="outlined"
               margin="normal"
@@ -81,6 +113,7 @@ export default function SignInSide(props: any) {
               id="password"
               autoComplete="current-password"
             />
+            {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
             <Button
               type="submit"
               fullWidth
