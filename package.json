@@ -27,8 +27,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build --if-present",
-    "test": "set \"CI=false\" && react-scripts test --passWithNoTests",
+    "build": "CI=false react-scripts build --if-present",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
