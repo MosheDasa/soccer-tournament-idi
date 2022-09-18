@@ -38,9 +38,9 @@ export default function HeaderAppBar() {
   const handleClickLink = (path: string) => {
     if (path === "logout") {
       logout();
-      path = "";
+    } else {
+      navigate("/" + path);
     }
-    navigate("/" + path);
   };
 
   const handleDrawerToggle = () => {
@@ -48,12 +48,12 @@ export default function HeaderAppBar() {
   };
 
   const navItemsAfterFilter = navItems.filter(
-    (x) => x.permission.indexOf(permissionUser) !== -1
+    (x) => x.permission.indexOf(permissionUser.permission) !== -1
   );
 
   const navItemsAfterFilterMobile = [...navItems]
     .reverse()
-    .filter((x) => x.permission.indexOf(permissionUser) !== -1);
+    .filter((x) => x.permission.indexOf(permissionUser.permission) !== -1);
 
   const isLoginOrLogout = (path: string) => {
     return path === "login" || path === "logout";

@@ -8,14 +8,24 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { PermissionType } from "../../../libs/models/permission";
+import { useApiAuth } from "../../../libs/services/api-auth";
 
 function RefereeScreen() {
+  const { logout, isLogin } = useApiAuth();
   const [age, setAge] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
   };
+
+  useEffect(() => {
+    const login = isLogin([PermissionType.admin, PermissionType.referee]);
+    if (!login) {
+      logout();
+    }
+  }, [""]);
 
   const top100Films = [
     { label: "The Shawshank Redemption 3", year: 1994 },

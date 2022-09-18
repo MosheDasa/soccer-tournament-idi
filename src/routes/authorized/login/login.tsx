@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import { UserAccount } from "../../../libs/models/user-account";
+import { UserAccount, UserAccountReq } from "../../../libs/models/user-account";
 import {
   Alert,
   Avatar,
@@ -20,38 +20,38 @@ export default function SignInSide(props: any) {
 
   useEffect(() => {
     const login = isLogin([PermissionType.admin, PermissionType.referee]);
+
     if (login) {
       window.location.href = "/refereeScreen";
     }
   }, [""]);
 
-  const [account, setAccount] = useState<UserAccount>({
-    username: "",
+  const [userAccountReq, setUserAccountReq] = useState<UserAccountReq>({
     password: "",
+    permission: PermissionType.user,
+    userName: "",
   });
 
   const handelAccount = (property: string, event: any) => {
-    const accountCopy = { ...account };
+    const userAccountReqCopy = { ...userAccountReq };
     setErrorMessageByErrorType(ErrorMessageType.None);
 
     if (property === "username") {
-      accountCopy.username = event.target.value;
+      userAccountReqCopy.userName = event.target.value;
     } else {
-      accountCopy.password = event.target.value;
+      userAccountReqCopy.password = event.target.value;
     }
 
-    setAccount(accountCopy);
+    setUserAccountReq(userAccountReqCopy);
   };
 
   const handelLogin = (event: any) => {
     event.preventDefault();
     setErrorMessageByErrorType(ErrorMessageType.None);
-    if (account && account.username && account.password) {
-      login(account.username, account.password).then(
-        (replay: ErrorMessageType) => {
-          setErrorMessageByErrorType(replay);
-        }
-      );
+    if (userAccountReq && userAccountReq.userName && userAccountReq.password) {
+      login(userAccountReq).then((replay: ErrorMessageType) => {
+        setErrorMessageByErrorType(replay);
+      });
     } else {
       setErrorMessageByErrorType(ErrorMessageType.RequiredFields);
     }

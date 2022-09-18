@@ -3,7 +3,10 @@ import { KeyLocalStorge } from "../models/keys";
 import { Team } from "../models/team";
 
 export const useApiInformation = () => {
-  const [value, setValue] = useLocalStorage(KeyLocalStorge.TeamsKeyStorage, "");
+  const [dataStorage, setDataStorage] = useLocalStorage(
+    KeyLocalStorge.TeamsKeyStorage,
+    ""
+  );
 
   // ---------------- PointsTable ----------------
   const getSummaryPointsTable = async () => {
@@ -15,12 +18,12 @@ export const useApiInformation = () => {
     fetch("/mock/team.json")
       .then((res) => res.json())
       .then((json) => {
-        setValue(json.teams);
+        setDataStorage(json.teams);
       });
   };
 
   const getTeamById = (teamId: number) => {
-    const teams = value as Array<Team>;
+    const teams = dataStorage as Array<Team>;
     const teamObj = teams.filter((x) => x.teamID === teamId);
     if (teamObj) {
       return teamObj[0];
@@ -29,7 +32,7 @@ export const useApiInformation = () => {
   };
 
   const getTeams = () => {
-    return value as Array<Team>;
+    return dataStorage as Array<Team>;
   };
 
   // ---------------- Game ----------------------
