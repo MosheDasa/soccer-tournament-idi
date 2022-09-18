@@ -2,14 +2,13 @@ import {
   Autocomplete,
   Button,
   ButtonGroup,
-  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
   Stack,
   TextField,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function RefereeScreen() {
   const [age, setAge] = useState("");

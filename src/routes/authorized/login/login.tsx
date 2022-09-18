@@ -19,10 +19,11 @@ export default function SignInSide(props: any) {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    if (isLogin([PermissionType.admin, PermissionType.referee])) {
+    const login = isLogin([PermissionType.admin, PermissionType.referee]);
+    if (login) {
       window.location.href = "/refereeScreen";
     }
-  }, []);
+  }, [""]);
 
   const [account, setAccount] = useState<UserAccount>({
     username: "",

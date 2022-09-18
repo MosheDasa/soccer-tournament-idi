@@ -1,4 +1,3 @@
-import * as React from "react";
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -15,7 +14,7 @@ export default function ListGroups() {
   const [teams, setTeams] = useState(new Array<Team>());
   const { getTeams } = useApiInformation();
 
-  const { loder, setLoder } = useLoderer();
+  const { setLoder } = useLoderer();
 
   useEffect(() => {
     setLoder(true);
@@ -23,7 +22,7 @@ export default function ListGroups() {
     if (teamsData) {
       setTeams(teamsData);
     }
-  }, []);
+  }, [""]);
 
   return (
     <List

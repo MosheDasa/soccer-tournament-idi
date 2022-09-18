@@ -17,7 +17,7 @@ export const useApiAuth = () => {
 
   useEffect(() => {
     setPermissionUser(value);
-  }, []);
+  }, [""]);
 
   const login = (userName: string, password: string) => {
     return fetch("/mock/users.json")

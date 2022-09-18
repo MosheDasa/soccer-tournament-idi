@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     onload();
-  }, []);
+  }, [""]);
 
   const onload = async () => {
     await loadTeams();

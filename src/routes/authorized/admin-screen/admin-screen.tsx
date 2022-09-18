@@ -1,9 +1,8 @@
-import { useEffect } from "react";
-
 function AdminScreen() {
   return (
     <>
-      <h1> AdminScreen</h1>
+      <h4> AdminScreen</h4>
+      <h1> בקרוב....</h1>
     </>
   );
 }

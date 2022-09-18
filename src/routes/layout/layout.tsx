@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import { Suspense, useState } from "react";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import Footer from "../../libs/components/footer/footer";
 import Header from "../../libs/components/header/header";
