@@ -1,5 +1,7 @@
+import { numbers } from "@material/toolbar/constants";
 import { useEffect, useState } from "react";
 import { Game, GameStatusType } from "../../../libs/models/game";
+import { ResponseData } from "../../../libs/models/generta";
 import { PermissionType } from "../../../libs/models/permission";
 import { useApiAuth } from "../../../libs/services/api-auth";
 import { useApiGamesData } from "../../../libs/services/api-games-data";
@@ -14,8 +16,13 @@ export enum ViewRefereeScreen {
 }
 
 function RefereeScreen() {
-  const { setDataStorage, dataStorage, UpdateStatusGame, getGameByGameId } =
-    useApiGamesData();
+  const {
+    setDataStorage,
+    dataStorage,
+    UpdateStatusGame,
+    getGameByGameId,
+    UpdatePointsGame,
+  } = useApiGamesData();
   const { permissionUser, logout, isLogin } = useApiAuth();
   const [view, setView] = useState<ViewRefereeScreen>();
 
@@ -44,6 +51,7 @@ function RefereeScreen() {
   const saveSelectedGame = (selectedGame: Game) => {
     if (selectedGame) {
       setDataStorage(selectedGame);
+      setView(ViewRefereeScreen.UpdateGame);
     } else {
       //todo
     }
@@ -57,8 +65,8 @@ function RefereeScreen() {
         if (response && response.isSuccess) {
           const responseGame = await getGameByGameId(gameData.gameId);
           if (responseGame && responseGame.isSuccess && responseGame.data) {
+            responseGame.data.gameStatus = gameStatus;
             saveSelectedGame(responseGame.data);
-            setView(ViewRefereeScreen.UpdateGame);
           } else {
             //todo: error messagae
           }
@@ -69,6 +77,18 @@ function RefereeScreen() {
     } else {
       //todo
     }
+  };
+
+  const updateGamePoint = async (
+    gameId: number,
+    teamId: number,
+    playerNumber: number
+  ) => {
+    return UpdatePointsGame(gameId, teamId, playerNumber).then(
+      (response: ResponseData<string>) => {
+        return response;
+      }
+    );
   };
 
   return (
@@ -87,7 +107,14 @@ function RefereeScreen() {
             gameStatus={dataStorage.gameStatus}
             saveStatueGame={saveStatueGame}
           ></UpdateStatusGameComp>
-          <UpdateGamePointComp></UpdateGamePointComp>
+
+          {dataStorage.gameStatus === GameStatusType.Started && (
+            <UpdateGamePointComp
+              gameId={dataStorage.gameId}
+              updateGamePoint={updateGamePoint}
+              gameData={dataStorage}
+            ></UpdateGamePointComp>
+          )}
         </>
       )}
 

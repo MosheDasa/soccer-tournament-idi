@@ -26,10 +26,9 @@ export const useApiGamesData = () => {
   };
 
   const getGameByGameId = async (gameId: number) => {
-    return fetch("/mock/getGameByGameId-1.json")
+    return fetch("/mock/getGameByGameId.json")
       .then((res) => res.json())
       .then((response: ResponseData<Game>) => {
-        console.log("getGameByGameId success !!!!!!!!", response);
         return response;
       });
   };
@@ -41,7 +40,6 @@ export const useApiGamesData = () => {
     return fetch("/mock/updateStatusGame.json")
       .then((res) => res.json())
       .then((response: ResponseData<string>) => {
-        console.log("UpdateStatusGame success !!!!!!!!", response);
         return response;
       });
   };
@@ -54,7 +52,6 @@ export const useApiGamesData = () => {
     return fetch("/mock/updatePointsGame.json")
       .then((res) => res.json())
       .then((response: ResponseData<string>) => {
-        console.log("UpdatePointsGame success !!!!!!!!", response);
         return response;
       });
   };

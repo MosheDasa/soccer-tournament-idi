@@ -21,7 +21,7 @@ function SelectGame(props: SelectGameProp) {
   const { loadListGames } = useApiGamesData();
   const [listRefereeGames, setListRefereeGames] = useState<Array<Game>>([]);
 
-  const [selectedGame, setSelectedGame] = useState<number>(-1);
+  const [selectedGame, setSelectedGame] = useState<number>(0);
 
   useEffect(() => {
     load_List_Games();

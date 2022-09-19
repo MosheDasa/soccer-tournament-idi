@@ -6,7 +6,7 @@
     "gameId": 1,
     "gameType": 0,
     "refereeId": 1,
-    "gameStatus": 2,
+    "gameStatus": 1,
     "teamA": {
       "teamId": 1,
       "teamName": "מערכות מידע",
