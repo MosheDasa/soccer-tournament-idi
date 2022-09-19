@@ -1,5 +1,8 @@
 {
-  "teams": [
+  "isSuccess": true,
+  "description": "",
+  "errorType": 0,
+  "data": [
     {
       "teamID": 1,
       "teamName": "מערכות מידע",

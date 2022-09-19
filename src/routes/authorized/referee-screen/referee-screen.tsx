@@ -1,87 +1,97 @@
-import {
-  Autocomplete,
-  Button,
-  ButtonGroup,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Stack,
-  TextField,
-} from "@mui/material";
 import { useEffect, useState } from "react";
+import { Game, GameStatusType } from "../../../libs/models/game";
 import { PermissionType } from "../../../libs/models/permission";
 import { useApiAuth } from "../../../libs/services/api-auth";
+import { useApiGamesData } from "../../../libs/services/api-games-data";
+import SelectGame from "./components/selected-game";
+import UpdateGamePointComp from "./components/update-game-point";
+import UpdateStatusGameComp from "./components/update-status-game";
+
+export enum ViewRefereeScreen {
+  SelectGame,
+  UpdateGame,
+  EndGame,
+}
 
 function RefereeScreen() {
-  const { logout, isLogin } = useApiAuth();
-  const [age, setAge] = useState("");
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
+  const { setDataStorage, dataStorage, UpdateStatusGame, getGameByGameId } =
+    useApiGamesData();
+  const { permissionUser, logout, isLogin } = useApiAuth();
+  const [view, setView] = useState<ViewRefereeScreen>();
 
   useEffect(() => {
+    onloadRefereeScreen();
+  }, []);
+
+  const onloadRefereeScreen = () => {
     const login = isLogin([PermissionType.admin, PermissionType.referee]);
     if (!login) {
       logout();
+    } else {
+      const gameData = dataStorage as Game;
+      if (gameData) {
+        if (gameData.gameStatus === GameStatusType.Ended) {
+          setView(ViewRefereeScreen.EndGame);
+        } else {
+          setView(ViewRefereeScreen.UpdateGame);
+        }
+      } else {
+        setView(ViewRefereeScreen.SelectGame);
+      }
     }
-  }, [""]);
+  };
 
-  const top100Films = [
-    { label: "The Shawshank Redemption 3", year: 1994 },
-    { label: "The Godfather 5", year: 1972 },
-    { label: "The Godfather: Part II", year: 1974 },
-  ];
+  const saveSelectedGame = (selectedGame: Game) => {
+    if (selectedGame) {
+      setDataStorage(selectedGame);
+    } else {
+      //todo
+    }
+  };
+
+  const saveStatueGame = async (gameStatus: GameStatusType) => {
+    if (gameStatus) {
+      const gameData = dataStorage as Game;
+      if (gameData && gameData.gameId) {
+        const response = await UpdateStatusGame(gameData.gameId, gameStatus);
+        if (response && response.isSuccess) {
+          const responseGame = await getGameByGameId(gameData.gameId);
+          if (responseGame && responseGame.isSuccess && responseGame.data) {
+            saveSelectedGame(responseGame.data);
+            setView(ViewRefereeScreen.UpdateGame);
+          } else {
+            //todo: error messagae
+          }
+        } else {
+          //todo: error messagae
+        }
+      }
+    } else {
+      //todo
+    }
+  };
 
   return (
     <>
-      <h1> RefereeScreen</h1>
+      <h1>היי, {permissionUser.accountName}</h1>
 
-      <div>
-        <p>בחר משחק:</p>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </div>
-      <div>
-        <Stack direction="row" spacing={2}>
-          <Button variant="outlined" color="error">
-            המשחק מסתיים
-          </Button>
-          <Button variant="contained" color="success">
-            המשחק מתחיל
-          </Button>
-        </Stack>
-      </div>
-      <div>
-        <p>למי להוסיף נקודה?</p>
-        <ButtonGroup
-          disableElevation
-          variant="contained"
-          aria-label="Disabled elevation buttons"
-        >
-          <Button>One</Button>
-          <Button>Two</Button>
-        </ButtonGroup>
+      {view === ViewRefereeScreen.SelectGame && (
+        <SelectGame
+          saveSelectedGame={saveSelectedGame}
+          refereeId={permissionUser.refereeId}
+        ></SelectGame>
+      )}
+      {view === ViewRefereeScreen.UpdateGame && (
+        <>
+          <UpdateStatusGameComp
+            gameStatus={dataStorage.gameStatus}
+            saveStatueGame={saveStatueGame}
+          ></UpdateStatusGameComp>
+          <UpdateGamePointComp></UpdateGamePointComp>
+        </>
+      )}
 
-        <p>מי הכניס את הגול?</p>
-
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={top100Films}
-          sx={{ width: 300 }}
-          renderInput={(params) => <TextField {...params} label="Movie" />}
-        />
-      </div>
+      {view === ViewRefereeScreen.EndGame && <h1> המשחק הסתיים </h1>}
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import { UserAccount, UserAccountReq } from "../../../libs/models/user-account";
+import { UserAccountReq } from "../../../libs/models/user-account";
 import {
   Alert,
   Avatar,

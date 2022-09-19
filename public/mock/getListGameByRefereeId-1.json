@@ -1,0 +1,55 @@
+{
+  "isSuccess": true,
+  "description": "",
+  "errorType": 0,
+  "data": [
+    {
+      "gameId": 1,
+      "gameType": 0,
+      "refereeId": 1,
+      "gameStatus": 0,
+      "teamA": {
+        "teamId": 1,
+        "teamName": "מערכות מידע",
+        "points": 0
+      },
+      "teamB": {
+        "teamId": 2,
+        "teamName": "מוקד דירות",
+        "points": 0
+      }
+    },
+    {
+      "gameId": 2,
+      "gameType": 0,
+      "refereeId": 1,
+      "gameStatus": 0,
+      "teamA": {
+        "teamId": 3,
+        "teamName": "מוקד שימור חיים",
+        "points": 0
+      },
+      "teamB": {
+        "teamId": 4,
+        "teamName": "מוקד חיים יקנעם",
+        "points": 0
+      }
+    },
+    {
+      "gameId": 3,
+      "gameType": 0,
+      "refereeId": 1,
+      "gameStatus": 0,
+      "teamA": {
+        "teamId": 5,
+        "teamName": "מוקד חידושים",
+        "points": 0
+      },
+      "teamB": {
+        "teamId": 6,
+        "teamName": "מוקד חיים פ'ת",
+        "points": 0
+      }
+    }
+  ]
+}

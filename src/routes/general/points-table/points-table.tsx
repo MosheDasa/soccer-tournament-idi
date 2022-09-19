@@ -9,20 +9,24 @@ import {
   StyledTableCell,
   StyledTableRow,
 } from "../../../libs/styles/team-roster-style";
-import { useApiInformation } from "../../../libs/services/api-information";
+
 import { useEffect, useState } from "react";
-import { GroupPointsData } from "../../../libs/models/summaryPointsTable";
+import { GroupPointsData } from "../../../libs/models/summary-points-table";
+import { useApiPointsTable } from "../../../libs/services/api-points-Table";
+import { ResponseData } from "../../../libs/models/generta";
 
 export default function PointsTable() {
-  const { getSummaryPointsTable } = useApiInformation();
+  const { getSummaryPointsTable } = useApiPointsTable();
   const [summaryPointsTable, setSummaryPointsTable] = useState(
     new Array<GroupPointsData>()
   );
 
   useEffect(() => {
-    getSummaryPointsTable().then((result: any) => {
-      setSummaryPointsTable(result.summaryPointsTable);
-    });
+    getSummaryPointsTable().then(
+      (response: ResponseData<Array<GroupPointsData>>) => {
+        setSummaryPointsTable(response.data);
+      }
+    );
   }, [""]);
 
   return (

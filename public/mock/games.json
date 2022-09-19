@@ -1,9 +1,13 @@
 {
-  "games": {
+  "isSuccess": true,
+  "description": "",
+  "errorType": 0,
+  "data": {
     "BatYam": {
       "GroupA": [
         {
           "teamAId": 1,
+          "refereeId": 1,
           "pointsTeamA": "",
           "teamBId": 2,
           "pointsTeamB": "",
@@ -11,6 +15,7 @@
         },
         {
           "teamAId": 1,
+          "refereeId": 1,
           "pointsTeamA": "",
           "teamBId": 3,
           "pointsTeamB": "",
@@ -18,6 +23,7 @@
         },
         {
           "teamAId": 2,
+          "refereeId": 1,
           "pointsTeamA": "",
           "teamBId": 3,
           "pointsTeamB": "",
@@ -27,6 +33,7 @@
       "GroupB": [
         {
           "teamAId": 4,
+          "refereeId": 1,
           "pointsTeamA": "",
           "teamBId": 5,
           "pointsTeamB": "",
@@ -34,6 +41,7 @@
         },
         {
           "teamAId": 4,
+          "refereeId": 1,
           "pointsTeamA": "",
           "teamBId": 6,
           "pointsTeamB": "",
@@ -41,6 +49,7 @@
         },
         {
           "teamAId": 5,
+          "refereeId": 1,
           "pointsTeamA": "",
           "teamBId": 6,
           "pointsTeamB": "",
@@ -48,44 +57,7 @@
         }
       ]
     },
-    "Semifinals": [
-      {
-        "teamAId": 0,
-        "pointsTeamA": "",
-        "teamBId": 0,
-        "pointsTeamB": "",
-        "gameStatus": 0
-      },
-      {
-        "teamAId": 0,
-        "pointsTeamA": "",
-        "teamBId": 0,
-        "pointsTeamB": "",
-        "gameStatus": 0
-      },
-      {
-        "teamAId": 0,
-        "pointsTeamA": "",
-        "teamBId": 0,
-        "pointsTeamB": "",
-        "gameStatus": 0
-      }
-    ],
-    "final": [
-      {
-        "teamAId": 0,
-        "pointsTeamA": "",
-        "teamBId": 0,
-        "pointsTeamB": "",
-        "gameStatus": 0
-      },
-      {
-        "teamAId": 0,
-        "pointsTeamA": "",
-        "teamBId": 0,
-        "pointsTeamB": "",
-        "gameStatus": 0
-      }
-    ]
+    "Semifinals": [],
+    "final": []
   }
 }

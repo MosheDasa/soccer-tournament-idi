@@ -1,0 +1,21 @@
+{
+  "isSuccess": true,
+  "description": "",
+  "errorType": 0,
+  "data": {
+    "gameId": 1,
+    "gameType": 0,
+    "refereeId": 1,
+    "gameStatus": 2,
+    "teamA": {
+      "teamId": 1,
+      "teamName": "מערכות מידע",
+      "points": 0
+    },
+    "teamB": {
+      "teamId": 2,
+      "teamName": "מוקד דירות",
+      "points": 0
+    }
+  }
+}

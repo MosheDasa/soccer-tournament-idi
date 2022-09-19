@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/use-local-storage";
-import { ErrorMessageType } from "../models/generta";
+import { ErrorMessageType, ResponseData } from "../models/generta";
 import { KeyLocalStorge } from "../models/keys";
 import { PermissionType } from "../models/permission";
 import { UserAccount, UserAccountReq } from "../models/user-account";
@@ -9,6 +9,7 @@ export const useApiAuth = () => {
   const DefaultUser: UserAccount = {
     accountName: "user",
     permission: PermissionType.user,
+    refereeId: 0,
   };
 
   const [permissionUser, setPermissionUser] =
@@ -26,11 +27,9 @@ export const useApiAuth = () => {
   const login = (userAccountReq: UserAccountReq) => {
     return fetch("/mock/users.json")
       .then((res) => {
-        return res.json().then((data: any) => {
-          const usersData = data.users as Array<UserAccount>;
-
-          if (usersData && usersData.length) {
-            const userLogin = usersData.find(
+        return res.json().then((response: ResponseData<Array<UserAccount>>) => {
+          if (response && response.isSuccess && response.data.length) {
+            const userLogin = response.data.find(
               //todo mdasa (x) => x.userName === userAccountReq.userName && x.password === userAccountReq.password
               (x) => true
             );

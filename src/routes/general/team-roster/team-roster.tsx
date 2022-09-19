@@ -7,18 +7,18 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useApiInformation } from "../../../libs/services/api-information";
 import { Player } from "../../../libs/models/team";
 import {
   StyledTableCell,
   StyledTableRow,
 } from "../../../libs/styles/team-roster-style";
+import { useApiTeams } from "../../../libs/services/api-teams";
 
 export default function CustomizedTables() {
   const [players, setPlayers] = useState<Array<Player>>(new Array<Player>());
   const [teamName, setTeamName] = useState("");
   const location = useLocation();
-  const { getTeamById } = useApiInformation();
+  const { getTeamById } = useApiTeams();
 
   useEffect(() => {
     const teamid = location.pathname.replace("/teamRoster/", "");

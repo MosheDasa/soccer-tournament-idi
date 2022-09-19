@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useApiInformation } from "../libs/services/api-information";
 import Layout from "../routes/layout/layout";
 import PointsTable from "../routes/general/points-table/points-table";
 import Scoreboard from "../routes/general/scoreboard/scoreboard";
@@ -10,9 +9,10 @@ import Login from "../routes/authorized/login/login";
 import "../main.css";
 import ListGroups from "../routes/general/list-groups/list-groups";
 import TeamRoster from "../routes/general/team-roster/team-roster";
+import { useApiTeams } from "../libs/services/api-teams";
 
 function App() {
-  const { loadTeams } = useApiInformation();
+  const { loadTeams } = useApiTeams();
 
   useEffect(() => {
     onload();
@@ -31,9 +31,10 @@ function App() {
           <Route path="listGroups" element={<ListGroups />} />
           <Route path="scoreboard" element={<Scoreboard />} />
           <Route path="adminScreen" element={<AdminScreen />} />
-          <Route path="refereeScreen" element={<RefereeScreen />} />
           <Route path="teamRoster/:teamid" element={<TeamRoster />} />
           <Route path="login" element={<Login />} />
+          <Route path="refereeScreen" element={<RefereeScreen />} />
+          <Route path="refereeScreen" element={<Layout />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

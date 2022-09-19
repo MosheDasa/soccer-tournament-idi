@@ -1,5 +1,8 @@
 {
-  "summaryPointsTable": [
+  "isSuccess": true,
+  "description": "",
+  "errorType": 0,
+  "data": [
     {
       "rating": 1,
       "teamID": 1,

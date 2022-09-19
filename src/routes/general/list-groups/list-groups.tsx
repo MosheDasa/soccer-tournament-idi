@@ -4,15 +4,15 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useApiInformation } from "../../../libs/services/api-information";
 import { useEffect, useState } from "react";
 import { Team } from "../../../libs/models/team";
 import { Link } from "react-router-dom";
 import useLoderer from "../../../libs/hooks/use-loder";
+import { useApiTeams } from "../../../libs/services/api-teams";
 
 export default function ListGroups() {
   const [teams, setTeams] = useState(new Array<Team>());
-  const { getTeams } = useApiInformation();
+  const { getTeams } = useApiTeams();
 
   const { setLoder } = useLoderer();
 

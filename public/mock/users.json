@@ -1,18 +1,24 @@
 {
-  "users": [
+  "isSuccess": true,
+  "description": "",
+  "errorType": 0,
+  "data": [
     {
-      "accountName": "משה דסה - מנהל",
+      "refereeId": 1,
+      "accountName": "משה דסה - שופט",
       "username": "dasa",
       "password": "121212",
-      "permission": 2
+      "permission": 1
     },
     {
+      "refereeId": 2,
       "accountName": "משה דסה - שופט",
       "username": "moshe",
       "password": "121212",
       "permission": 1
     },
     {
+      "refereeId": 3,
       "accountName": "אבי דסה - שופט",
       "username": "avi",
       "password": "121212",
