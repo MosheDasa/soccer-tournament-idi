@@ -25,7 +25,6 @@ function SelectGame(props: SelectGameProp) {
 
   useEffect(() => {
     load_List_Games();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const load_List_Games = async () => {

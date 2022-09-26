@@ -22,7 +22,6 @@ export default function ListGroups() {
     if (teamsData) {
       setTeams(teamsData);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
