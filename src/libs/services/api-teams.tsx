@@ -11,7 +11,7 @@ export const useApiTeams = () => {
 
   // ---------------- Teams ----------------------
   const loadTeams = async () => {
-    fetch("/mock/team.json")
+    fetch("https://localhost:44364/Teams")
       .then((res) => res.json())
       .then((response: ResponseData<Array<Team>>) => {
         setDataStorage(response.data);

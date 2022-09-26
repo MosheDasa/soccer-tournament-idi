@@ -17,8 +17,8 @@ export const useApiGamesData = () => {
       .then((response: ResponseData<any>) => {});
   };
 
-  const loadListGames = async (refereeId: number) => {
-    return fetch("/mock/getListGameByRefereeId-1.json")
+  const loadListGames = async (userId: number) => {
+    return fetch("/mock/getListGameByuserId-1.json")
       .then((res) => res.json())
       .then((response: ResponseData<Array<Game>>) => {
         return response;
@@ -47,7 +47,7 @@ export const useApiGamesData = () => {
   const UpdatePointsGame = async (
     gameId: number,
     teamId: number,
-    playerNumber: number
+    playerId: number
   ) => {
     return fetch("/mock/updatePointsGame.json")
       .then((res) => res.json())

@@ -7,9 +7,9 @@ import { UserAccount, UserAccountReq } from "../models/user-account";
 
 export const useApiAuth = () => {
   const DefaultUser: UserAccount = {
-    accountName: "user",
+    fullName: "user",
     permission: PermissionType.user,
-    refereeId: 0,
+    userId: 0,
   };
 
   const [permissionUser, setPermissionUser] =
@@ -25,14 +25,17 @@ export const useApiAuth = () => {
   }, [""]);
 
   const login = (userAccountReq: UserAccountReq) => {
-    return fetch("/mock/users.json")
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userAccountReq),
+    };
+
+    return fetch("https://localhost:44364/AuthUser", requestOptions)
       .then((res) => {
-        return res.json().then((response: ResponseData<Array<UserAccount>>) => {
-          if (response && response.isSuccess && response.data.length) {
-            const userLogin = response.data.find(
-              //todo mdasa (x) => x.userName === userAccountReq.userName && x.password === userAccountReq.password
-              (x) => true
-            );
+        return res.json().then((response: ResponseData<UserAccount>) => {
+          if (response && response.isSuccess) {
+            const userLogin = response.data;
 
             if (userLogin && userLogin.permission) {
               setPermissionUser(userLogin);

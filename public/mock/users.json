@@ -4,22 +4,22 @@
   "errorType": 0,
   "data": [
     {
-      "refereeId": 1,
-      "accountName": "משה דסה - שופט",
+      "userId": 1,
+      "fullName": "משה דסה - שופט",
       "username": "dasa",
       "password": "121212",
       "permission": 1
     },
     {
-      "refereeId": 2,
-      "accountName": "משה דסה - שופט",
+      "userId": 2,
+      "fullName": "משה דסה - שופט",
       "username": "moshe",
       "password": "121212",
       "permission": 1
     },
     {
-      "refereeId": 3,
-      "accountName": "אבי דסה - שופט",
+      "userId": 3,
+      "fullName": "אבי דסה - שופט",
       "username": "avi",
       "password": "121212",
       "permission": 1

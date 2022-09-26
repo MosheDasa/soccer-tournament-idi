@@ -2,7 +2,7 @@ export interface Game {
   gameId: number;
   teamA: TeamGameData;
   teamB: TeamGameData;
-  refereeId: number;
+  userId: number;
   gameStatus: GameStatusType;
   gameType: GameType;
 }

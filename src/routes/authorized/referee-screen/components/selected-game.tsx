@@ -11,7 +11,7 @@ import { Game } from "../../../../libs/models/game";
 import { useApiGamesData } from "../../../../libs/services/api-games-data";
 
 export interface SelectGameProp {
-  refereeId: number;
+  userId: number;
   saveSelectedGame: (selectedGame: Game) => void;
 }
 
@@ -28,7 +28,7 @@ function SelectGame(props: SelectGameProp) {
   }, []);
 
   const load_List_Games = async () => {
-    const response = await loadListGames(props.refereeId);
+    const response = await loadListGames(props.userId);
     if (response && response.isSuccess) {
       setListRefereeGames(response.data);
     } else {

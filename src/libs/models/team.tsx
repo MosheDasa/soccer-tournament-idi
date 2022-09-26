@@ -7,7 +7,7 @@ export interface Team {
 }
 
 export interface Player {
-  playerNumber: number;
+  playerId: number;
   fullName: string;
   teamID: number;
 }

@@ -82,9 +82,9 @@ function RefereeScreen() {
   const updateGamePoint = async (
     gameId: number,
     teamId: number,
-    playerNumber: number
+    playerId: number
   ) => {
-    return UpdatePointsGame(gameId, teamId, playerNumber).then(
+    return UpdatePointsGame(gameId, teamId, playerId).then(
       (response: ResponseData<string>) => {
         return response;
       }
@@ -93,12 +93,12 @@ function RefereeScreen() {
 
   return (
     <>
-      <h1>היי, {permissionUser.accountName}</h1>
+      <h1>היי, {permissionUser.fullName}</h1>
 
       {view === ViewRefereeScreen.SelectGame && (
         <SelectGame
           saveSelectedGame={saveSelectedGame}
-          refereeId={permissionUser.refereeId}
+          userId={permissionUser.userId}
         ></SelectGame>
       )}
       {view === ViewRefereeScreen.UpdateGame && (

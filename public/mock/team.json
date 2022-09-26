@@ -9,37 +9,37 @@
       "teamCoach": "יורגן קלופ",
       "players": [
         {
-          "playerNumber": "7",
+          "playerId": "7",
           "fullName": "רז ברטוב",
           "teamID": 1
         },
         {
-          "playerNumber": "4",
+          "playerId": "4",
           "fullName": "שי שמשמון",
           "teamID": 1
         },
         {
-          "playerNumber": "10",
+          "playerId": "10",
           "fullName": "שי בשארי",
           "teamID": 1
         },
         {
-          "playerNumber": "9",
+          "playerId": "9",
           "fullName": "יהונתן חשאי",
           "teamID": 1
         },
         {
-          "playerNumber": "8",
+          "playerId": "8",
           "fullName": "מאור שלו",
           "teamID": 1
         },
         {
-          "playerNumber": "1",
+          "playerId": "1",
           "fullName": "עומרי עמר",
           "teamID": 1
         },
         {
-          "playerNumber": "15",
+          "playerId": "15",
           "fullName": "שי פרץ",
           "teamID": 1
         }
@@ -52,37 +52,37 @@
       "teamCoach": "יורגן קלופ",
       "players": [
         {
-          "playerNumber": "13",
+          "playerId": "13",
           "fullName": "אדריאן",
           "teamID": 2
         },
         {
-          "playerNumber": "32",
+          "playerId": "32",
           "fullName": "ג'ואל מאטיפ",
           "teamID": 2
         },
         {
-          "playerNumber": "62",
+          "playerId": "62",
           "fullName": "ג'וזף גומז",
           "teamID": 2
         },
         {
-          "playerNumber": "26",
+          "playerId": "26",
           "fullName": "אנדרו רוברטסון",
           "teamID": 2
         },
         {
-          "playerNumber": "4",
+          "playerId": "4",
           "fullName": "וירג'יל ואן דייק",
           "teamID": 2
         },
         {
-          "playerNumber": "21",
+          "playerId": "21",
           "fullName": "קונסטנטינוס צימיקאס",
           "teamID": 2
         },
         {
-          "playerNumber": "20",
+          "playerId": "20",
           "fullName": "דיוגו ג'וטה",
           "teamID": 2
         }
@@ -95,37 +95,37 @@
       "teamCoach": "מיקל ארטטה",
       "players": [
         {
-          "playerNumber": "13",
+          "playerId": "13",
           "fullName": "אדריאן",
           "teamID": 3
         },
         {
-          "playerNumber": "32",
+          "playerId": "32",
           "fullName": "ג'ואל מאטיפ",
           "teamID": 3
         },
         {
-          "playerNumber": "62",
+          "playerId": "62",
           "fullName": "ג'וזף גומז",
           "teamID": 3
         },
         {
-          "playerNumber": "26",
+          "playerId": "26",
           "fullName": "אנדרו רוברטסון",
           "teamID": 3
         },
         {
-          "playerNumber": "4",
+          "playerId": "4",
           "fullName": "וירג'יל ואן דייק",
           "teamID": 3
         },
         {
-          "playerNumber": "21",
+          "playerId": "21",
           "fullName": "קונסטנטינוס צימיקאס",
           "teamID": 3
         },
         {
-          "playerNumber": "20",
+          "playerId": "20",
           "fullName": "דיוגו ג'וטה",
           "teamID": 3
         }
@@ -138,37 +138,37 @@
       "teamCoach": "יס תורוף",
       "players": [
         {
-          "playerNumber": "13",
+          "playerId": "13",
           "fullName": "אדריאן",
           "teamID": 4
         },
         {
-          "playerNumber": "32",
+          "playerId": "32",
           "fullName": "ג'ואל מאטיפ",
           "teamID": 4
         },
         {
-          "playerNumber": "62",
+          "playerId": "62",
           "fullName": "ג'וזף גומז",
           "teamID": 4
         },
         {
-          "playerNumber": "26",
+          "playerId": "26",
           "fullName": "אנדרו רוברטסון",
           "teamID": 4
         },
         {
-          "playerNumber": "4",
+          "playerId": "4",
           "fullName": "וירג'יל ואן דייק",
           "teamID": 4
         },
         {
-          "playerNumber": "21",
+          "playerId": "21",
           "fullName": "קונסטנטינוס צימיקאס",
           "teamID": 4
         },
         {
-          "playerNumber": "20",
+          "playerId": "20",
           "fullName": "דיוגו ג'וטה",
           "teamID": 4
         }
@@ -181,37 +181,37 @@
       "teamCoach": "ג'יו ואן ברונקהוסט",
       "players": [
         {
-          "playerNumber": "13",
+          "playerId": "13",
           "fullName": "אדריאן",
           "teamID": 5
         },
         {
-          "playerNumber": "32",
+          "playerId": "32",
           "fullName": "ג'ואל מאטיפ",
           "teamID": 5
         },
         {
-          "playerNumber": "62",
+          "playerId": "62",
           "fullName": "ג'וזף גומז",
           "teamID": 5
         },
         {
-          "playerNumber": "26",
+          "playerId": "26",
           "fullName": "אנדרו רוברטסון",
           "teamID": 5
         },
         {
-          "playerNumber": "4",
+          "playerId": "4",
           "fullName": "וירג'יל ואן דייק",
           "teamID": 5
         },
         {
-          "playerNumber": "21",
+          "playerId": "21",
           "fullName": "קונסטנטינוס צימיקאס",
           "teamID": 5
         },
         {
-          "playerNumber": "20",
+          "playerId": "20",
           "fullName": "דיוגו ג'וטה",
           "teamID": 5
         }
@@ -224,37 +224,37 @@
       "teamCoach": "ז'וזה מוריניו",
       "players": [
         {
-          "playerNumber": "13",
+          "playerId": "13",
           "fullName": "אדריאן",
           "teamID": 6
         },
         {
-          "playerNumber": "32",
+          "playerId": "32",
           "fullName": "ג'ואל מאטיפ",
           "teamID": 6
         },
         {
-          "playerNumber": "62",
+          "playerId": "62",
           "fullName": "ג'וזף גומז",
           "teamID": 6
         },
         {
-          "playerNumber": "26",
+          "playerId": "26",
           "fullName": "אנדרו רוברטסון",
           "teamID": 6
         },
         {
-          "playerNumber": "4",
+          "playerId": "4",
           "fullName": "וירג'יל ואן דייק",
           "teamID": 6
         },
         {
-          "playerNumber": "21",
+          "playerId": "21",
           "fullName": "קונסטנטינוס צימיקאס",
           "teamID": 6
         },
         {
-          "playerNumber": "20",
+          "playerId": "20",
           "fullName": "דיוגו ג'וטה",
           "teamID": 6
         }

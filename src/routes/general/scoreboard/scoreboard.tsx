@@ -25,16 +25,16 @@ function Scoreboard() {
     //   <h1>בית א</h1>
     //   <GameResult
     //     gameStatus={GameStatusType.notStarted}
-    //     pointsTeamA={2}
-    //     pointsTeamB={0}
+    //     TeamAGol={2}
+    //     TeamBGol={0}
     //     teamAId={1}
     //     teamBId={2}
     //   ></GameResult>
 
     //   <GameResult
     //     gameStatus={GameStatusType.notStarted}
-    //     pointsTeamA={4}
-    //     pointsTeamB={1}
+    //     TeamAGol={4}
+    //     TeamBGol={1}
     //     teamAId={4}
     //     teamBId={3}
     //   ></GameResult>
@@ -42,16 +42,16 @@ function Scoreboard() {
     //   <h1>בית ב</h1>
     //   <GameResult
     //     gameStatus={GameStatusType.notStarted}
-    //     pointsTeamA={2}
-    //     pointsTeamB={0}
+    //     TeamAGol={2}
+    //     TeamBGol={0}
     //     teamAId={1}
     //     teamBId={2}
     //   ></GameResult>
 
     //   <GameResult
     //     gameStatus={GameStatusType.notStarted}
-    //     pointsTeamA={4}
-    //     pointsTeamB={1}
+    //     TeamAGol={4}
+    //     TeamBGol={1}
     //     teamAId={4}
     //     teamBId={3}
     //   ></GameResult>

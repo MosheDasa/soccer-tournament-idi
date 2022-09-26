@@ -7,52 +7,52 @@
       "GroupA": [
         {
           "teamAId": 1,
-          "refereeId": 1,
-          "pointsTeamA": "",
+          "userId": 1,
+          "TeamAGol": "",
           "teamBId": 2,
-          "pointsTeamB": "",
+          "TeamBGol": "",
           "gameStatus": 0
         },
         {
           "teamAId": 1,
-          "refereeId": 1,
-          "pointsTeamA": "",
+          "userId": 1,
+          "TeamAGol": "",
           "teamBId": 3,
-          "pointsTeamB": "",
+          "TeamBGol": "",
           "gameStatus": 0
         },
         {
           "teamAId": 2,
-          "refereeId": 1,
-          "pointsTeamA": "",
+          "userId": 1,
+          "TeamAGol": "",
           "teamBId": 3,
-          "pointsTeamB": "",
+          "TeamBGol": "",
           "gameStatus": 0
         }
       ],
       "GroupB": [
         {
           "teamAId": 4,
-          "refereeId": 1,
-          "pointsTeamA": "",
+          "userId": 1,
+          "TeamAGol": "",
           "teamBId": 5,
-          "pointsTeamB": "",
+          "TeamBGol": "",
           "gameStatus": 0
         },
         {
           "teamAId": 4,
-          "refereeId": 1,
-          "pointsTeamA": "",
+          "userId": 1,
+          "TeamAGol": "",
           "teamBId": 6,
-          "pointsTeamB": "",
+          "TeamBGol": "",
           "gameStatus": 0
         },
         {
           "teamAId": 5,
-          "refereeId": 1,
-          "pointsTeamA": "",
+          "userId": 1,
+          "TeamAGol": "",
           "teamBId": 6,
-          "pointsTeamB": "",
+          "TeamBGol": "",
           "gameStatus": 0
         }
       ]

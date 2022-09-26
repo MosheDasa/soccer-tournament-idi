@@ -42,9 +42,9 @@ export default function CustomizedTables() {
           </TableHead>
           <TableBody>
             {players.map((player) => (
-              <StyledTableRow key={player.playerNumber}>
+              <StyledTableRow key={player.playerId}>
                 <TableCell align="right" component="th" scope="row">
-                  {player.playerNumber}
+                  {player.playerId}
                 </TableCell>
                 <TableCell align="right">{player.fullName}</TableCell>
               </StyledTableRow>

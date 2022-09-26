@@ -18,7 +18,7 @@ export interface updateGameResultProp {
   updateGamePoint: (
     gameId: number,
     teamId: number,
-    playerNumber: number
+    playerId: number
   ) => Promise<ResponseData<string>>;
 }
 
@@ -106,11 +106,8 @@ function UpdateGamePointComp(props: updateGameResultProp) {
               >
                 {listPlayer &&
                   listPlayer.map((player: Player) => (
-                    <MenuItem
-                      key={player.playerNumber}
-                      value={player.playerNumber}
-                    >
-                      {player.playerNumber} - {player.fullName}
+                    <MenuItem key={player.playerId} value={player.playerId}>
+                      {player.playerId} - {player.fullName}
                     </MenuItem>
                   ))}
               </Select>

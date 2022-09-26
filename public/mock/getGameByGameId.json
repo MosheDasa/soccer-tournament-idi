@@ -5,7 +5,7 @@
   "data": {
     "gameId": 1,
     "gameType": 0,
-    "refereeId": 1,
+    "userId": 1,
     "gameStatus": 1,
     "teamA": {
       "teamId": 1,

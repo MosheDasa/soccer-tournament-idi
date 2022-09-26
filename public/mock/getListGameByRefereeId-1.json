@@ -6,7 +6,7 @@
     {
       "gameId": 1,
       "gameType": 0,
-      "refereeId": 1,
+      "userId": 1,
       "gameStatus": 0,
       "teamA": {
         "teamId": 1,
@@ -22,7 +22,7 @@
     {
       "gameId": 2,
       "gameType": 0,
-      "refereeId": 1,
+      "userId": 1,
       "gameStatus": 0,
       "teamA": {
         "teamId": 3,
@@ -38,7 +38,7 @@
     {
       "gameId": 3,
       "gameType": 0,
-      "refereeId": 1,
+      "userId": 1,
       "gameStatus": 0,
       "teamA": {
         "teamId": 5,

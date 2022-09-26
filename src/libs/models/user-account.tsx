@@ -1,8 +1,8 @@
 import { PermissionType } from "./permission";
 
 export interface UserAccount {
-  refereeId: number;
-  accountName: string;
+  userId: number;
+  fullName: string;
   permission: PermissionType;
   userName?: string;
   password?: string;
