@@ -16,7 +16,8 @@ function App() {
 
   useEffect(() => {
     onload();
-  }, [""]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onload = async () => {
     await loadTeams();

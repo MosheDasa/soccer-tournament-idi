@@ -27,7 +27,8 @@ export default function CustomizedTables() {
       setTeamName(TeamObj.teamName);
       setPlayers(TeamObj.players);
     }
-  }, [""]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

@@ -24,7 +24,8 @@ export default function SignInSide(props: any) {
     if (login) {
       window.location.href = "/refereeScreen";
     }
-  }, [""]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [userAccountReq, setUserAccountReq] = useState<UserAccountReq>({
     password: "",

@@ -10,7 +10,8 @@ function AdminScreen() {
     if (!login) {
       logout();
     }
-  }, [""]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

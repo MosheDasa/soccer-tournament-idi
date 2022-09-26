@@ -27,7 +27,8 @@ export default function PointsTable() {
         setSummaryPointsTable(response.data);
       }
     );
-  }, [""]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

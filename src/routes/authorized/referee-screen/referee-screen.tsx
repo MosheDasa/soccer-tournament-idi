@@ -1,4 +1,3 @@
-import { numbers } from "@material/toolbar/constants";
 import { useEffect, useState } from "react";
 import { Game, GameStatusType } from "../../../libs/models/game";
 import { ResponseData } from "../../../libs/models/generta";
@@ -28,6 +27,7 @@ function RefereeScreen() {
 
   useEffect(() => {
     onloadRefereeScreen();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onloadRefereeScreen = () => {

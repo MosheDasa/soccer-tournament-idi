@@ -22,7 +22,8 @@ export const useApiAuth = () => {
 
   useEffect(() => {
     setPermissionUser(dataStorage);
-  }, [""]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const login = (userAccountReq: UserAccountReq) => {
     const requestOptions = {
