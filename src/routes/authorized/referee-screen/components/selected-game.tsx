@@ -30,7 +30,9 @@ function SelectGame(props: SelectGameProp) {
   const load_List_Games = async () => {
     const response = await loadListGames(props.userId);
     if (response && response.isSuccess) {
-      setListRefereeGames(response.data);
+      if (response.data) {
+        setListRefereeGames(response.data);
+      }
     } else {
       //todo: error messagae
     }

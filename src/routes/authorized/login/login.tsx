@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import { UserAccountReq } from "../../../libs/models/user-account";
+import { UserAccount, UserAccountReq } from "../../../libs/models/user-account";
 import {
   Alert,
   Avatar,
@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { useApiAuth } from "../../../libs/services/api-auth";
 import { PermissionType } from "../../../libs/models/permission";
-import { ErrorMessageType } from "../../../libs/models/generta";
+import { ResponseData } from "../../../libs/models/generta";
 
 export default function SignInSide(props: any) {
   const { login, isLogin } = useApiAuth();
@@ -33,7 +33,7 @@ export default function SignInSide(props: any) {
 
   const handelAccount = (property: string, event: any) => {
     const userAccountReqCopy = { ...userAccountReq };
-    setErrorMessageByErrorType(ErrorMessageType.None);
+    setErrorMessageByErrorType(0);
 
     if (property === "username") {
       userAccountReqCopy.userName = event.target.value;
@@ -46,32 +46,34 @@ export default function SignInSide(props: any) {
 
   const handelLogin = (event: any) => {
     event.preventDefault();
-    setErrorMessageByErrorType(ErrorMessageType.None);
+    setErrorMessageByErrorType(0);
     if (userAccountReq && userAccountReq.userName && userAccountReq.password) {
-      login(userAccountReq).then((replay: ErrorMessageType) => {
-        setErrorMessageByErrorType(replay);
+      login(userAccountReq).then((replay: ResponseData<UserAccount>) => {
+        if (!replay || !replay.isSuccess) {
+          setErrorMessageByErrorType(replay.errorCode);
+        }
       });
     } else {
-      setErrorMessageByErrorType(ErrorMessageType.RequiredFields);
+      setErrorMessageByErrorType(70);
     }
   };
 
-  const setErrorMessageByErrorType = (errorType: ErrorMessageType) => {
+  const setErrorMessageByErrorType = (ErrorCode: number) => {
     let errorMessage = "";
 
-    switch (errorType) {
-      case ErrorMessageType.GeneralError:
-        errorMessage = "שגיאה כללית";
+    switch (ErrorCode) {
+      case 0:
+        errorMessage = "";
         break;
-      case ErrorMessageType.Invalid:
+      case 80:
         errorMessage = "היוזר או הסיסמא לא תקינים";
         break;
-      case ErrorMessageType.RequiredFields:
+      case 70:
         errorMessage = "יש למלא את כל השדות";
         break;
-      case ErrorMessageType.None:
+      case 99:
       default:
-        errorMessage = "";
+        errorMessage = "שגיאה כללית";
         break;
     }
     setErrorMessage(errorMessage);

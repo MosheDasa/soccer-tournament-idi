@@ -24,7 +24,9 @@ export default function PointsTable() {
   useEffect(() => {
     getSummaryPointsTable().then(
       (response: ResponseData<Array<GroupPointsData>>) => {
-        setSummaryPointsTable(response.data);
+        if (response.data) {
+          setSummaryPointsTable(response.data);
+        }
       }
     );
   }, []);

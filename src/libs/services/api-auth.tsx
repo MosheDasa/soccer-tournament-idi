@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../hooks/use-local-storage";
-import { ErrorMessageType, ResponseData } from "../models/generta";
+import { ResponseData } from "../models/generta";
 import { KeyLocalStorge } from "../models/keys";
 import { PermissionType } from "../models/permission";
 import { UserAccount, UserAccountReq } from "../models/user-account";
@@ -40,22 +40,27 @@ export const useApiAuth = () => {
             if (userLogin && userLogin.permission) {
               setPermissionUser(userLogin);
               setDataStorage(userLogin);
+
               if (userLogin.permission === PermissionType.referee) {
                 window.location.href = "/refereeScreen";
               } else {
                 window.location.href = "/adminScreen";
               }
-              return ErrorMessageType.None;
-            } else {
-              return ErrorMessageType.Invalid;
+
+              return response;
             }
-          } else {
-            return ErrorMessageType.GeneralError;
           }
+          return response;
         });
       })
       .catch((er) => {
-        return ErrorMessageType.GeneralError;
+        const defaultReplay: ResponseData<UserAccount> = {
+          isSuccess: false,
+          data: er,
+          description: er,
+          errorCode: 99,
+        };
+        return defaultReplay;
       });
   };
 
