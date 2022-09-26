@@ -28,8 +28,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-dasa": "react-scripts build --if-present",
-    "build": "CI=false react-scripts build --if-present",
+    "build-dasa": "CI=false  react-scripts build --if-present",
+    "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject"
   },
