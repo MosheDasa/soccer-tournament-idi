@@ -12,17 +12,20 @@ import { useApiTeams } from "../../../libs/services/api-teams";
 
 export default function ListGroups() {
   const [teams, setTeams] = useState(new Array<Team>());
-  const { getTeams } = useApiTeams();
+  const { loadTeams } = useApiTeams();
 
   const { setLoder } = useLoderer();
 
   useEffect(() => {
-    setLoder(true);
-    const teamsData = getTeams();
+    LOAD_TEAMS();
+  }, []);
+
+  const LOAD_TEAMS = async () => {
+    const teamsData = await loadTeams();
     if (teamsData) {
       setTeams(teamsData);
     }
-  }, []);
+  };
 
   return (
     <List

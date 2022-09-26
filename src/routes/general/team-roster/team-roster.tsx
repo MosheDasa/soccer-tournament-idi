@@ -21,13 +21,17 @@ export default function CustomizedTables() {
   const { getTeamById } = useApiTeams();
 
   useEffect(() => {
+    LOAD_TEAM_ROSTER();
+  }, []);
+
+  const LOAD_TEAM_ROSTER = async () => {
     const teamid = location.pathname.replace("/teamRoster/", "");
-    const TeamObj = getTeamById(+teamid);
+    const TeamObj = await getTeamById(+teamid);
     if (TeamObj && TeamObj.players) {
       setTeamName(TeamObj.teamName);
       setPlayers(TeamObj.players);
     }
-  }, []);
+  };
 
   return (
     <>

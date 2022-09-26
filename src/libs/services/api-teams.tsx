@@ -11,15 +11,26 @@ export const useApiTeams = () => {
 
   // ---------------- Teams ----------------------
   const loadTeams = async () => {
-    fetch("https://localhost:44364/Teams")
-      .then((res) => res.json())
-      .then((response: ResponseData<Array<Team>>) => {
-        setDataStorage(response.data);
-      });
+    const teams = dataStorage as Array<Team>;
+    if (teams && teams.length) {
+      return teams;
+    } else {
+      return fetch(process.env.REACT_APP_URL_API + "/Teams")
+        .then((res) => res.json())
+        .then((response: ResponseData<Array<Team>>) => {
+          setDataStorage(response.data);
+          return response.data;
+        });
+    }
   };
 
-  const getTeamById = (teamId: number) => {
-    const teams = dataStorage as Array<Team>;
+  const getTeamById = async (teamId: number) => {
+    let teams = dataStorage as Array<Team>;
+
+    if (!teams) {
+      teams = await loadTeams();
+    }
+
     const teamObj = teams.filter((x) => x.teamID === teamId);
     if (teamObj) {
       return teamObj[0];
@@ -27,13 +38,8 @@ export const useApiTeams = () => {
     return null;
   };
 
-  const getTeams = () => {
-    return dataStorage as Array<Team>;
-  };
-
   return {
     loadTeams,
-    getTeams,
     getTeamById,
   };
 };

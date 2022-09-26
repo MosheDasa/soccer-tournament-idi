@@ -31,7 +31,7 @@ export const useApiAuth = () => {
       body: JSON.stringify(userAccountReq),
     };
 
-    return fetch("https://localhost:44364/AuthUser", requestOptions)
+    return fetch(process.env.REACT_APP_URL_API + "/AuthUser", requestOptions)
       .then((res) => {
         return res.json().then((response: ResponseData<UserAccount>) => {
           if (response && response.isSuccess) {

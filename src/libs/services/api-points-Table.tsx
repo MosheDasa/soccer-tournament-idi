@@ -4,7 +4,8 @@ import { GroupPointsData } from "../models/summary-points-table";
 export const useApiPointsTable = () => {
   // ---------------- PointsTable ----------------
   const getSummaryPointsTable = async () => {
-    return fetch("/mock/summaryPointsTable.json").then((res) =>
+    //"/mock/summaryPointsTable.json"
+    return fetch(process.env.REACT_APP_URL_API + "/xxxxx").then((res) =>
       res.json().then((response: ResponseData<Array<GroupPointsData>>) => {
         return response;
       })

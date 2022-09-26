@@ -12,13 +12,13 @@ export const useApiGamesData = () => {
   // ---------------- Game ----------------------
   //todo
   const loadGameData = async () => {
-    fetch("/mock/game.json")
+    fetch(process.env.REACT_APP_URL_API + "/xxxxx")
       .then((res) => res.json())
       .then((response: ResponseData<any>) => {});
   };
 
   const loadListGames = async (userId: number) => {
-    return fetch("/mock/getListGameByuserId-1.json")
+    return fetch(process.env.REACT_APP_URL_API + "/xxxxx") //"/mock/getListGameByuserId-1.json"
       .then((res) => res.json())
       .then((response: ResponseData<Array<Game>>) => {
         return response;
@@ -26,7 +26,7 @@ export const useApiGamesData = () => {
   };
 
   const getGameByGameId = async (gameId: number) => {
-    return fetch("/mock/getGameByGameId.json")
+    return fetch(process.env.REACT_APP_URL_API + "/xxxxx") // "/mock/getGameByGameId.json")
       .then((res) => res.json())
       .then((response: ResponseData<Game>) => {
         return response;
@@ -37,7 +37,7 @@ export const useApiGamesData = () => {
     gameId: number,
     gameStatus: GameStatusType
   ) => {
-    return fetch("/mock/updateStatusGame.json")
+    return fetch(process.env.REACT_APP_URL_API + "/xxxxx") //"/mock/updateStatusGame.json")
       .then((res) => res.json())
       .then((response: ResponseData<string>) => {
         return response;
@@ -49,7 +49,7 @@ export const useApiGamesData = () => {
     teamId: number,
     playerId: number
   ) => {
-    return fetch("/mock/updatePointsGame.json")
+    return fetch(process.env.REACT_APP_URL_API + "/xxxxx") //"/mock/updatePointsGame.json")
       .then((res) => res.json())
       .then((response: ResponseData<string>) => {
         return response;

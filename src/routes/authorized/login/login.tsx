@@ -28,7 +28,6 @@ export default function SignInSide(props: any) {
 
   const [userAccountReq, setUserAccountReq] = useState<UserAccountReq>({
     password: "",
-    permission: PermissionType.user,
     userName: "",
   });
 

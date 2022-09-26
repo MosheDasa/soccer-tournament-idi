@@ -29,9 +29,9 @@ function UpdateGamePointComp(props: updateGameResultProp) {
 
   const { getTeamById } = useApiTeams();
 
-  const handleSelectedGroup = (teamId: number) => {
+  const handleSelectedGroup = async (teamId: number) => {
     setSelectedGroup(teamId);
-    const team = getTeamById(teamId);
+    const team = await getTeamById(teamId);
     if (team && team.players) {
       setSelectedPlayer(0);
       setListPlayer(team.players);
