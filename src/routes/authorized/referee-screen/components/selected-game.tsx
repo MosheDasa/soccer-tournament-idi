@@ -62,7 +62,7 @@ function SelectGame(props: SelectGameProp) {
             {listRefereeGames &&
               listRefereeGames.map((GameData: Game, index: number) => (
                 <MenuItem key={index} value={index}>
-                  {GameData.teamA.teamName} - {GameData.teamB.teamName} (
+                  {GameData.teamAName} - {GameData.teamBName} (
                   {gameTypeDescriptionHebrew[GameData.gameType]} )
                 </MenuItem>
               ))}

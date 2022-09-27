@@ -1,20 +1,20 @@
 export interface Game {
   gameId: number;
-  teamA: TeamGameData;
-  teamB: TeamGameData;
+  teamAId: number;
+  teamAName: number;
+  teamAGol: number;
+  teamBId: number;
+  teamBName: number;
+  teamBGol: number;
   userId: number;
   gameStatus: GameStatusType;
   gameType: GameType;
-}
-
-export interface TeamGameData {
-  teamId: number;
-  teamName: string;
-  points: number;
+  insrtDate: string;
+  updateDate: string;
 }
 
 export enum GameStatusType {
-  notStarted,
+  None,
   Started,
   Ended,
 }

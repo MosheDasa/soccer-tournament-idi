@@ -9,52 +9,107 @@ import {
 import { DataGrid, GridColumns, GridRowsProp } from "@mui/x-data-grid";
 
 import { useEffect, useState } from "react";
-import { Player } from "../../../../../libs/models/team";
+import { EventsData } from "../../../../../libs/models/events-data";
+import { Game } from "../../../../../libs/models/game";
+import { Player, Team } from "../../../../../libs/models/team";
+import { UserAccount } from "../../../../../libs/models/user-account";
 import { useApiAdmin } from "../../../../../libs/services/api-admin";
 import { TableProperties } from "./table_properties";
 
 export default function TablesPanel() {
-  const { getTablePlayers } = useApiAdmin();
+  const {
+    getTablePlayers,
+    getTableUser,
+    getTableEvents,
+    getTableGames,
+    getTableTeams,
+  } = useApiAdmin();
+
   const [columnsData, setColumnsData] = useState<GridColumns>();
   const [rowsData, setRowsData] = useState<GridRowsProp>();
   const [tableSelected, setTableSelected] = useState();
 
-  useEffect(() => {
-    setColumnsData(TableProperties.columnsPlayers);
-  }, []);
-
   const handleChange = (event: SelectChangeEvent) => {
-    const xx = event.target.value as string;
-    console.log("dasa handleChange", xx);
-    setTablePlayers();
+    const indexTable = event.target.value as string;
+    console.log("dasa 1", indexTable);
+
+    switch (+indexTable) {
+      case 0:
+        setColumnsData(TableProperties.columnsPlayers);
+        setTablePlayers();
+        break;
+      case 1:
+        setColumnsData(TableProperties.columnsUser);
+        setTableUser();
+        break;
+      case 2:
+        setColumnsData(TableProperties.columnsEvents);
+        setTableEvents();
+        break;
+      case 3:
+        setColumnsData(TableProperties.columnsGames);
+        setTableGames();
+        break;
+      case 4:
+        setColumnsData(TableProperties.columnsTeams);
+        setTableTeams();
+        break;
+    }
   };
 
-  const handleSelectedGroup = async (indexTable: number) => {
-    setTablePlayers();
-    // switch (indexTable) {
-    //   case 1:
-    //     break;
-    //   default:
-    //     break;
-    // }
-  };
-
+  //#############################################################################
   const setTablePlayers = async () => {
     const tableData = await getTablePlayers();
 
     const rows = tableData.data.map((player: Player, index: number) => {
-      const x = {
-        id: index,
-        playerId: player.playerId,
-        fullName: player.fullName,
-        teamID: player.teamID,
-      };
+      const x = { id: index, ...player };
       return x;
     });
-    console.log(rows);
     setRowsData(rows);
   };
 
+  const setTableUser = async () => {
+    const tableData = await getTableUser();
+
+    const rows = tableData.data.map((user: UserAccount, index: number) => {
+      const x = { id: index, ...user };
+      return x;
+    });
+    setRowsData(rows);
+  };
+
+  const setTableEvents = async () => {
+    const tableData = await getTableEvents();
+
+    const rows = tableData.data.map((events: EventsData, index: number) => {
+      const x = { id: index, ...events };
+      return x;
+    });
+    console.log("dasa", rows);
+    setRowsData(rows);
+  };
+
+  const setTableGames = async () => {
+    const tableData = await getTableGames();
+
+    const rows = tableData.data.map((game: Game, index: number) => {
+      const x = { id: index, ...game };
+      return x;
+    });
+    setRowsData(rows);
+  };
+
+  const setTableTeams = async () => {
+    const tableData = await getTableTeams();
+
+    const rows = tableData.data.map((team: Team, index: number) => {
+      const x = { id: index, ...team };
+      return x;
+    });
+    setRowsData(rows);
+  };
+
+  //#############################################################################
   const HeaderSelect = () => {
     return (
       <Box sx={{ minWidth: "100%" }}>

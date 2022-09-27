@@ -63,31 +63,31 @@ function UpdateGamePointComp(props: updateGameResultProp) {
         <h3> דיווח גול עבור קבוצה:</h3>
         <Stack direction="row" spacing={1}>
           <Box m={3} pt={1}>
-            {props.gameData.teamA.points} נקודות
+            {props.gameData.teamAGol} נקודות
             <Button
-              onClick={(e) => handleSelectedGroup(props.gameData.teamA.teamId)}
+              onClick={(e) => handleSelectedGroup(props.gameData.teamAId)}
               variant={
-                selectedGroup === props.gameData.teamA.teamId
+                selectedGroup === props.gameData.teamAId
                   ? "contained"
                   : "outlined"
               }
               sx={{ fontSize: 24 }}
             >
-              {props.gameData.teamA.teamName}
+              {props.gameData.teamAName}
             </Button>
           </Box>
           <Box m={3} pt={4}>
-            {props.gameData.teamB.points} נקודות
+            {props.gameData.teamBGol} נקודות
             <Button
-              onClick={(e) => handleSelectedGroup(props.gameData.teamB.teamId)}
+              onClick={(e) => handleSelectedGroup(props.gameData.teamBId)}
               variant={
-                selectedGroup === props.gameData.teamB.teamId
+                selectedGroup === props.gameData.teamBId
                   ? "contained"
                   : "outlined"
               }
               sx={{ fontSize: 24 }}
             >
-              {props.gameData.teamB.teamName}
+              {props.gameData.teamBName}
             </Button>
           </Box>
         </Stack>
