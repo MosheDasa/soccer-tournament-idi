@@ -55,13 +55,13 @@ export default function TablesPanel() {
     setRowsData(rows);
   };
 
-  const HeaderButton = () => {
+  const HeaderSelect = () => {
     return (
       <Box sx={{ minWidth: "100%" }}>
         <FormControl fullWidth>
           <Select
-            sx={{ marginTop: 5 }}
-            id="demo-simple-select"
+            sx={{ marginTop: 5, marginBottom: 5 }}
+            id="header-select"
             value={tableSelected}
             onChange={handleChange}
           >
@@ -78,7 +78,7 @@ export default function TablesPanel() {
 
   return (
     <>
-      {HeaderButton()}
+      {HeaderSelect()}
       <div style={{ height: 800, width: "100%" }}>
         {columnsData && rowsData && (
           <DataGrid
