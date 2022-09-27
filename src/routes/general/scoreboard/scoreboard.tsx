@@ -20,42 +20,6 @@ function Scoreboard() {
         <Item>Item 3</Item>
       </Stack>
     </>
-
-    // <>
-    //   <h1>בית א</h1>
-    //   <GameResult
-    //     gameStatus={GameStatusType.notStarted}
-    //     TeamAGol={2}
-    //     TeamBGol={0}
-    //     teamAId={1}
-    //     teamBId={2}
-    //   ></GameResult>
-
-    //   <GameResult
-    //     gameStatus={GameStatusType.notStarted}
-    //     TeamAGol={4}
-    //     TeamBGol={1}
-    //     teamAId={4}
-    //     teamBId={3}
-    //   ></GameResult>
-
-    //   <h1>בית ב</h1>
-    //   <GameResult
-    //     gameStatus={GameStatusType.notStarted}
-    //     TeamAGol={2}
-    //     TeamBGol={0}
-    //     teamAId={1}
-    //     teamBId={2}
-    //   ></GameResult>
-
-    //   <GameResult
-    //     gameStatus={GameStatusType.notStarted}
-    //     TeamAGol={4}
-    //     TeamBGol={1}
-    //     teamAId={4}
-    //     teamBId={3}
-    //   ></GameResult>
-    // </>
   );
 }
 

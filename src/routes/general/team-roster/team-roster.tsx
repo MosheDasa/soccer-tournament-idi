@@ -14,7 +14,7 @@ import {
 } from "../../../libs/styles/team-roster-style";
 import { useApiTeams } from "../../../libs/services/api-teams";
 
-export default function CustomizedTables() {
+export default function TeamRoster() {
   const [players, setPlayers] = useState<Array<Player>>(new Array<Player>());
   const [teamName, setTeamName] = useState("");
   const location = useLocation();

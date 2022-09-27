@@ -14,7 +14,7 @@ import { useApiAuth } from "../../../libs/services/api-auth";
 import { PermissionType } from "../../../libs/models/permission";
 import { ResponseData } from "../../../libs/models/generta";
 
-export default function SignInSide(props: any) {
+export default function UserLogin() {
   const { login, isLogin } = useApiAuth();
   const [errorMessage, setErrorMessage] = useState("");
 
